@@ -1,0 +1,330 @@
+<html>
+<head>
+    <script src="res/jquery.min.js"></script>
+	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+<style>
+@font-face {
+font-family: "Rubik";
+src: url(res/fonts/Rubik-Medium.ttf);
+}
+html {width:100vw; height:100vh; overflow:hidden;}    
+body {
+			margin:0; width:100vw; height:100vh; overflow: hidden;
+			background-image:white;
+			font-family:Rubik;
+			font-weight:1000;
+			color:#000000;
+			user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+			}
+.coffee-img {
+width:12vw; height:12vw;
+position:fixed; top:3vw; left:86%; z-index:10;	
+opacity:0; transition:all .6s ease;	
+display: none;
+}
+.coffee-img:active {
+transition:none;
+transform:scale(.9);
+}
+.bg-img {
+width:100vw; height:100vh;
+position:fixed; top:0; left:0;
+transform:translateY(-100vh);
+transition:all 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+			
+		.ct-bg {
+			height:80vh;
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:space-around;
+			align-content: space-evenly;
+			}
+			
+.ct {
+width:95vw; height: 35vw;
+border-radius:10px;
+transition:all .3s;
+box-shadow: 3px 7px 12px #00000026;
+display:flex; flex-wrap:wrap;
+justify-content:center;
+align-content:center;
+margin-top:2vh;
+background-size: 100% 100%;
+transform: scale(1.2); opacity: 0;
+transition: all 350ms ease;
+position: relative;
+color: white;
+overflow: hidden;
+}
+.ct5 {
+width: 95vw; height: 25vw;
+}
+
+.ct:active {
+	transition:none;
+	opacity: .6 !important;
+}
+.ct1 {
+background-image: url(res/movie.webp);
+}
+.ct2 {
+background-image: url(res/actor.webp);
+}
+				
+.ct-fill {
+width: 100%; height: 100%;
+position: absolute; top: 0; left: 0;
+background-color: rgba(0, 0, 0, .3);
+}
+				
+				
+			.ct-img {
+				width:30vw; height:30vw;
+				margin-bottom:2vw;
+				border-radius:10px;
+				}
+				
+			.ct-txt {
+				width:100%;		
+				text-align:center;
+				font-size:4vw;
+				position: relative;
+				}
+				
+			.score {
+				width:100%;
+				text-align:center;
+				padding-bottom:4vw;
+				font-size:4vw;
+				position: relative;
+				}
+				
+	.mid {
+		width: 100vw; height:10vh;
+		display: flex; align-items: center;
+	}
+				
+    .coins {
+		width: 24vw;
+		padding:.5vh 2vw;
+		background-color: white;
+		border-radius: 3vw;
+		display:flex;
+		flex-wrap:nowrap;
+		align-items:center;
+		box-shadow: 0px 0px 4px #0000004d;
+		transition:all .6s ease;
+		opacity:0;
+		margin-left: 4vw;
+	}	
+	.coins-img {
+    	width:7.5vw; height:7.5vw;
+    }
+    
+    #coins {
+	width: 15vw;
+    font-size:6vw;
+    transform:translateX(1.8vw);
+	}
+    
+			.back-img {
+		position:absolute;
+		top:1vw; left:1vw;
+		width:14vw;
+		}
+			
+		.feedback {
+		height:10vh; width:100%;
+		text-align:center;
+		display: flex; justify-content: center;
+		align-items: center;
+		transition: all 350ms ease;
+		animation:feedback 1s ease-in 1;
+		}
+		
+	@keyframes feedback {
+	0% {opacity:0;}
+	100% {opacity:1;}
+	}
+.feedback-ct {
+width: 50%; height: 7vh;
+background-color: #ecaaaa;
+border-radius: 10px;
+display: flex;
+justify-content: center; align-items: center;
+color: #3d3d3d;
+}
+	
+.feedback-ct:active {
+transition: none;
+opacity: .5;
+}
+
+	</style>
+</head>
+<body>
+    <img src="res/coffee.webp" class="coffee-img">
+   	
+   <div class="mid">
+   	<div class="coins">
+       <img src="res/coins.webp" class="coins-img"><div id="coins">0</div>
+      </div>
+   </div>
+   
+   <div class="ct-bg">
+    <div class="ct ct1">
+			<div class="ct-fill"></div>
+           <div class="ct-txt">MOVIE</div>
+           <div class="score"><span id="levels">0</span>/<span id="total"></span></div>
+       </div>
+       
+       <div class="ct ct2">
+		<div class="ct-fill"></div>
+           <div class="ct-txt">ACTOR/ACTRESS</div>
+           <div class="score">Coming soon...</div>
+       </div>
+       
+    </div><!--ct-bg closed-->    
+    <div class="feedback">
+		<div class="feedback-ct">Write your feedback</div>
+	</div>
+   <audio id="button2" src="res/button2.mp3" autoplay="false" ></audio>
+<script>
+var Version = 2.8;
+
+setTimeout(function() {$('.coffee-img, .coins, .feedback').css({opacity: '1'});}, 200);
+setTimeout(function() {$('.ct1').css({'transform': 'scale(1)','opacity': '1'});}, 100);
+setTimeout(function() {$('.ct2').css({'transform': 'scale(1)','opacity': '1'});}, 200);
+setTimeout(function() {$('.ct3').css({'transform': 'scale(1)','opacity': '1'});}, 300);
+setTimeout(function() {$('.ct4').css({'transform': 'scale(1)','opacity': '1'});}, 400);
+setTimeout(function() {$('.ct5').css({'transform': 'scale(1)','opacity': '1'});}, 500);
+
+   localStorage.setItem("levels_total", 11);
+
+   var levels_total = parseInt(localStorage.getItem('levels_total'));
+   var iilevels_total = parseInt(localStorage.getItem('iilevels_total'));
+   var iiilevels_total = parseInt(localStorage.getItem('iiilevels_total'));
+   var ivlevels_total = parseInt(localStorage.getItem('ivlevels_total'));
+   var vlevels_total = parseInt(localStorage.getItem('vlevels_total'));
+
+   document.getElementById('total').innerHTML=levels_total;
+   //document.getElementById('iitotal').innerHTML=iilevels_total;
+
+function FullHide() {
+setTimeout(function() {$('.coffee-img, .coins, .feedback').css({opacity: '0'});}, 200);
+setTimeout(function() {$('.ct1').css({'transform': 'scale(1.2)','opacity': '0'});}, 100);
+setTimeout(function() {$('.ct2').css({'transform': 'scale(1.2)','opacity': '0'});}, 200);
+setTimeout(function() {$('.ct3').css({'transform': 'scale(1.2)','opacity': '0'});}, 300);
+setTimeout(function() {$('.ct4').css({'transform': 'scale(1.2)','opacity': '0'});}, 400);
+setTimeout(function() {$('.ct5').css({'transform': 'scale(1.2)','opacity': '0'});}, 500);
+}
+   
+   	localStorage.removeItem("ad");
+	newdate = new Date();
+   	newdateobj = newdate.getDate();
+   	window.localStorage.setItem("newdateobj", newdateobj );
+   	newdateobj = localStorage.getItem("newdateobj");
+   	olddateobj = localStorage.getItem("olddateobj");
+   	
+   	
+   	if (localStorage.getItem("reward") === null) {
+   	var reward = 0;
+	   localStorage.setItem("reward", reward);
+	   localStorage.setItem("GiveReward", 0);
+   	} else {
+     var reward = localStorage.getItem("reward");
+   	}
+
+      if (localStorage.getItem("coins") === null) {
+          var coins = 10;
+          localStorage.setItem("coins", coins);
+          location.reload();
+      } else {
+      var coins = localStorage.getItem("coins");
+      document.getElementById("coins").innerHTML = coins;
+      }
+      
+$('.ct1').click(function() {
+document.getElementById("button2").play();
+FullHide();
+});
+
+$('.coins').click(function() {
+document.getElementById("button2").play();
+FullHide();
+setTimeout(() => {parent.location="get_coins.html";}, 700);
+});
+
+$('.coffee-img').click(function() {
+setTimeout(function() {
+parent.location='https://buymeacoffee.com/ofordy';
+}, 400);
+});
+	
+var levels = parseInt(localStorage.getItem("levels"));
+if (localStorage.getItem("levels") === null) {
+    levels = 1;
+    document.getElementById("levels").innerHTML = "1";
+    parseInt(localStorage.setItem("levels", levels));
+} else {document.getElementById("levels").innerHTML = levels;}
+$('.ct1').click(function(){
+localStorage.setItem("mode", "movie");
+if (levels <= levels_total) {
+setTimeout(function() {
+if (levels <= 9) {
+	parent.location='movie/html/00'+ levels + '.html';
+}
+if (levels >= 10) {
+	parent.location='movie/html/0'+ levels + '.html';
+}
+if (levels >= 100) {
+	parent.location='movie/html/'+ levels + '.html';
+}
+}, 700);
+} else {
+	setTimeout(function() {
+	parent.location='wait_update.html';
+}, 600); 
+}
+});
+
+/*var iilevels = parseInt(localStorage.getItem("iilevels"));
+if (localStorage.getItem("iilevels") === null) {
+    iilevels = 1;
+    document.getElementById("iilevels").innerHTML = "1";
+    parseInt(localStorage.setItem("iilevels", iilevels)	);
+} else {document.getElementById("iilevels").innerHTML = iilevels;}
+$('.ct2').click(function(){
+localStorage.setItem("mode", "actor");
+if (iilevels <= iilevels_total) {
+setTimeout(function() {
+if (iilevels <= 9) {
+	parent.location='actor/html/00'+ iilevels + '.html';
+}
+if (iilevels >= 10) {
+	parent.location='actor/html/0'+ iilevels + '.html';
+}
+if (iilevels >= 100) {
+	parent.location='actor/html/'+ iilevels + '.html';
+}
+}, 700);
+} else {
+	setTimeout(function() {
+	parent.location='wait_update.html';
+}, 600); 
+}
+});*/
+    
+$('.feedback-ct').click(function() {
+setTimeout(function() {
+    parent.location='mailto:quec.developer@gmail.com?subject=Feedback%20of%20Guess%20Malayalam%20Movie/Actor%20Names%20V' + Version + '&body=Write%20your%20feedback%20here'
+}, 200);
+});
+   </script>
+</body>
+</html>

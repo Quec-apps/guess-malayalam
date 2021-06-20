@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg2557"
+   version="1.1"
+   viewBox="0 0 1080 900"
+   height="450"
+   width="540">
+  <metadata
+     id="metadata2563">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2561" />
+  <rect
+     style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect2415"
+     height="900"
+     width="1080"
+     fill="#00b7ff" />
+  <g
+     style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+     id="g2555"
+     fill-opacity=".1">
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2417"
+       points="90 150 0 300 180 300"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2419"
+       points="90 150 180 0 0 0" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2421"
+       points="270 150 360 0 180 0"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2423"
+       points="450 150 360 300 540 300"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2425"
+       points="450 150 540 0 360 0"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2427"
+       points="630 150 540 300 720 300" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2429"
+       points="630 150 720 0 540 0"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2431"
+       points="810 150 720 300 900 300"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2433"
+       points="810 150 900 0 720 0"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2435"
+       points="990 150 900 300 1080 300"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2437"
+       points="990 150 1080 0 900 0"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2439"
+       points="90 450 0 600 180 600"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2441"
+       points="90 450 180 300 0 300" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2443"
+       points="270 450 180 600 360 600"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2445"
+       points="270 450 360 300 180 300"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2447"
+       points="450 450 360 600 540 600"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2449"
+       points="450 450 540 300 360 300"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2451"
+       points="630 450 540 600 720 600"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2453"
+       points="630 450 720 300 540 300"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2455"
+       points="810 450 720 600 900 600" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2457"
+       points="810 450 900 300 720 300"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2459"
+       points="990 450 900 600 1080 600"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2461"
+       points="990 450 1080 300 900 300"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2463"
+       points="90 750 0 900 180 900"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2465"
+       points="270 750 180 900 360 900" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2467"
+       points="270 750 360 600 180 600"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2469"
+       points="450 750 540 600 360 600" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2471"
+       points="630 750 540 900 720 900" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2473"
+       points="630 750 720 600 540 600"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2475"
+       points="810 750 720 900 900 900"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2477"
+       points="810 750 900 600 720 600"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2479"
+       points="990 750 900 900 1080 900"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2481"
+       points="180 0 90 150 270 150"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2483"
+       points="360 0 270 150 450 150"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2485"
+       points="540 0 450 150 630 150"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2487"
+       points="900 0 810 150 990 150" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2489"
+       points="0 300 -90 450 90 450"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2491"
+       points="0 300 90 150 -90 150"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2493"
+       points="180 300 90 450 270 450"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2495"
+       points="180 300 270 150 90 150"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2497"
+       points="360 300 270 450 450 450"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2499"
+       points="360 300 450 150 270 150"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2501"
+       points="540 300 450 450 630 450"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2503"
+       points="540 300 630 150 450 150"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2505"
+       points="720 300 630 450 810 450"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2507"
+       points="720 300 810 150 630 150"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2509"
+       points="900 300 810 450 990 450"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2511"
+       points="900 300 990 150 810 150"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2513"
+       points="0 600 -90 750 90 750" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2515"
+       points="0 600 90 450 -90 450"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2517"
+       points="180 600 90 750 270 750"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2519"
+       points="180 600 270 450 90 450"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2521"
+       points="360 600 270 750 450 750"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2523"
+       points="360 600 450 450 270 450"
+       fill="#999" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2525"
+       points="540 600 630 450 450 450"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2527"
+       points="720 600 630 750 810 750"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2529"
+       points="900 600 810 750 990 750"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2531"
+       points="900 600 990 450 810 450"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2533"
+       points="0 900 90 750 -90 750"
+       fill="#DDD" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2535"
+       points="180 900 270 750 90 750"
+       fill="#444" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2537"
+       points="360 900 450 750 270 750"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2539"
+       points="540 900 630 750 450 750"
+       fill="#AAA" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2541"
+       points="720 900 810 750 630 750"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2543"
+       points="900 900 990 750 810 750"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2545"
+       points="1080 300 990 450 1170 450"
+       fill="#222" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2547"
+       points="1080 300 1170 150 990 150"
+       fill="#FFF" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2549"
+       points="1080 600 990 750 1170 750" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2551"
+       points="1080 600 1170 450 990 450"
+       fill="#666" />
+    <polygon
+       style="fill:none;stroke:#ffffff;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="polygon2553"
+       points="1080 900 1170 750 990 750"
+       fill="#DDD" />
+  </g>
+</svg>
