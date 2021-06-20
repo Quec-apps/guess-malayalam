@@ -41,7 +41,13 @@ $("body").prepend(`
    <div class="coins"><img src="../../res/coins.webp" class="coins-img"><div id="coins">0</div></div>
   </div>
   
-  <div class="main-img-bg"></div>
+  <div class="main-img-bg">
+ 	<img src="../images/` + levels + `.webp" class="main-img">
+	<div class="img-error">
+	<div class="img-error-txt">Failed to load Image</div>
+	<div class="img-error-btn">RELOAD</div>
+	</div>
+  </div>
   <div class="tool-bg">
   <img src="../../res/clear.webp" class="clear-all"> 
   <img src="../../res/hint.webp" class="hint">
@@ -103,10 +109,6 @@ $('.hint-bg-bg').append(`
     </div>
   <div class="answer-bg hint-append"></div>	         
 </div>
-`);
-
-$('.main-img-bg').append(`
-<img src="../images/` + levels + `.jpg" class="main-img">
 `);
 
 $(".finish-con").append(`

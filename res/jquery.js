@@ -33,10 +33,6 @@ $('.next').click(function() {
 });
 
 
-
-
-
-
 var ans = 0;
 var digit = 1;
 
@@ -69,14 +65,9 @@ if (ac == full2Ans.length) {
 }
 
 
-
 setTimeout(() => {$(".answer-bg, .back-img").css({transform:'scale(1)', opacity:'1'});}, 100);
 setTimeout(() => {$(".letters-bg").css({transform:'scale(1)', opacity:'1'});}, 200);
 setTimeout(() => {$(".tool-bg").css({transform:'scale(1)', opacity:'1'});}, 300);
-
-
-
-
 
 
 function Outro() {
@@ -125,10 +116,15 @@ document.getElementById("coin-txt").innerHTML = "+1";
 $('.show-hint').click(function() {
 	if (coins < 1) {
 		document.getElementById("button3").play();
+		$('.out-coins-con').css({display:'flex'});
+		setTimeout(function() {$('.hint-bg-bg').fadeOut();}, 100 );
+		setTimeout(function() {$('.hint-bg').css({top: '0'});}, 400 );
 	} else {
 		document.getElementById("hint").play();
 		hint++;
 		$("#hintct" + hint).html(window["ct" + hint]);
+		coins --; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
 		if (hint == full2Ans.length - 1) {
 			$(".show-hint").css({visibility:'hidden'});
 		}
@@ -140,10 +136,11 @@ $(document).ready(function(){
 vhHeight = $(window).outerHeight();
 fullHeight = $(".full").outerHeight();
 calcHeight = vhHeight - fullHeight;
-$(".letters-bg").css({height: '' + (calcHeight - 10) + ''});
+$(".letters-bg").css({height: '' + (calcHeight - 10)});
 
-$(".completed-img").error(function () { 
-$('.main-img-bg2').css({opacity: '0'}); 
+$(".main-img").error(function () { 
+$(".img-error").css({display:"flex"});
+$(".main-img").css({visibility:'hidden'}); 
 });
 
 $("#ans-txt").html(fullAns);
@@ -196,9 +193,7 @@ document.getElementById("win").play();
 coins --; coins --; coins --; coins --; coins --;
 coins --; coins --; coins --; coins --; coins --;
 localStorage.setItem("coins", coins);
-document.getElementById("coins").innerHTML = coins;
-localStorage.setItem("coins", coins);
-document.getElementById("coins").innerHTML = coins;
+$("#coins").html(coins);
 $('.finish-con').css({display:'flex'});
 $('.score2').fadeOut(0);
 $('.hint-bg-bg').fadeOut();
@@ -299,6 +294,12 @@ document.getElementById("noct2").innerHTML = noct2;
 document.getElementById("noct3").innerHTML = noct3;
 document.getElementById("noct4").innerHTML = noct4;
 
+$(".img-error-btn").click(function() {
+$(".img-error").fadeOut("fast");
+$(".main-img").attr("src", "../images/" + levels + ".webp");
+$(".main-img").css({visibility:'visible'});
+});
+
 }
 
 function letterClick() {
@@ -332,6 +333,8 @@ if (digit == full2Ans.length + 1) {
 		Levelfunct();
 		$('.finish-con').css({display:'flex'});
 		document.getElementById("finish").play();
+		coins ++; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
 	} else {
 		$('.game-over-con').css({display:'flex'});
 		document.getElementById("over").play();
