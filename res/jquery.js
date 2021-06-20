@@ -338,6 +338,8 @@ if (digit == full2Ans.length + 1) {
 	} else {
 		$('.game-over-con').css({display:'flex'});
 		document.getElementById("over").play();
+		coins --; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
 	}
 }
 }, 200);
