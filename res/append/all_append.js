@@ -7,7 +7,43 @@ if (localStorage.getItem("mode") == "movie") {
 }
 
 $("body").prepend(`
+<style>
+.img-error {
+width: 100%; height: 100%;
+position: absolute; top: 0; left: 0;
+display: flex; flex-wrap: wrap; 
+justify-content: center; align-content: center;
+visibility: hidden;
+}
+.img-error-txt {
+width: 100%; text-align: center;
+padding-bottom: 4vw;
+}
+.img-error-btn, .img-error-btn2 {
+width: 50%;
+padding:2vw 4vw;
+background-color: ecaaaa;
+border-radius: 10px;
+}
+.img-error-btn:active, .img-error-btn2:active {
+opacity: .6;
+}
 
+.full-error {
+width: 100vw; height: 100vh;
+position: fixed; top:0; left:0;
+z-index: 100;
+display: none; flex-wrap: wrap;
+background-color: white;
+justify-content: center; align-content: center;
+}
+.full-error-txt {
+width: 100vw;
+text-align: center;
+font-size: 6vw;
+padding-bottom: 4vh;
+}
+</style>
 <div class="full-error">
 	<div class="full-error-txt">Network disconnected!</div>
 	<div class="img-error-btn2">RELOAD</div>
