@@ -13,6 +13,7 @@ width: 100%; height: 100%;
 position: absolute; top: 0; left: 0;
 display: flex; flex-wrap: wrap; 
 justify-content: center; align-content: center;
+z-index:99;
 }
 .img-error-txt {
 width: 100%; text-align: center;
