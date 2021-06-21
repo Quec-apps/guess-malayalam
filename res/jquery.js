@@ -138,11 +138,6 @@ fullHeight = $(".full").outerHeight();
 calcHeight = vhHeight - fullHeight;
 $(".letters-bg").css({height: '' + (calcHeight - 10)});
 
-$(".main-img").error(function () { 
-$(".img-error").css({display:"flex"});
-$(".main-img").css({visibility:'hidden'}); 
-});
-
 $("#ans-txt").html(fullAns);
 
 var Inter = localStorage.getItem('Inter');
@@ -294,10 +289,23 @@ document.getElementById("noct2").innerHTML = noct2;
 document.getElementById("noct3").innerHTML = noct3;
 document.getElementById("noct4").innerHTML = noct4;
 
+$(".main-img").error(function () { 
+$(".img-error").css({display:"flex"});
+$(".main-img").css({visibility:'hidden'}); 
+});
+
+$(".back-img, .coins-img, .clear-all, .hint, .button").error(function() {
+$("img").fadeOut(0);
+$(".full-error").css({display:'flex'});
+});
+
 $(".img-error-btn").click(function() {
 $(".img-error").fadeOut("fast");
 $(".main-img").attr("src", "../images/" + levels + ".webp");
 $(".main-img").css({visibility:'visible'});
+});
+$(".img-error-btn2").click(function() {
+setTimeout(() => {location.reload();}, 200);
 });
 
 }

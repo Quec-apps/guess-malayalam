@@ -7,6 +7,11 @@ if (localStorage.getItem("mode") == "movie") {
 }
 
 $("body").prepend(`
+
+<div class="full-error">
+	<div class="full-error-txt">Network disconnected!</div>
+	<div class="img-error-btn2">RELOAD</div>
+</div>
 <div class="game-over-con">
   <div class="game-over">
   <div class="g-o-ti">FAILED</div>
