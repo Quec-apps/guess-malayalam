@@ -1,175 +1,354 @@
-if (localStorage.getItem("mode") == "movie") {
-	levels = localStorage.getItem("levels");
-	total = parseInt(localStorage.getItem("levels_total"));
-} else if (localStorage.getItem("mode") == "actor") {
-	levels = localStorage.getItem("iilevels");
-	total = parseInt(localStorage.getItem("iilevels_total"));
+document.getElementById("main-levels").innerHTML = levels;
+
+function Levelfunct() {
+	levels ++;
+	if (localStorage.getItem("mode") == "movie") {
+		localStorage.setItem("levels", levels);
+	} else if (localStorage.getItem("mode") == "actor") {
+		localStorage.setItem("iilevels", levels);
+	}
 }
 
-$("body").prepend(`
-<style>
-.img-error {
-width: 100%; height: 100%;
-position: absolute; top: 0; left: 0;
-display: none; flex-wrap: wrap; 
-justify-content: center; align-content: center;
+$('.next').click(function() {
+	if (levels <= total) {
+			if (levels <= 9) {
+				setTimeout(function() {
+					location.replace(`00${levels}.html`);
+					}, 400);
+					return
+			}
+			if (levels <= 99) {
+				setTimeout(function() {
+					location.replace(`0${levels}.html`);
+					}, 400);
+					return
+			}
+			if (levels >= 100) {
+				setTimeout(function() {
+					location.replace(`${levels}.html`);
+					}, 400);
+					return
+			}
+    } else {window.history.back();}
+});
+
+
+var ans = 0;
+var digit = 1;
+
+for (let aa = 1; aa <= full2Ans.length; aa++) {
+  $('.main-answer-bg').append(`
+<div class="answer-ct answer-ct${aa}"><div class="ans" id="ans${aa}"></div></div>
+`);
 }
-.img-error-txt {
-width: 100%; text-align: center;
-padding-bottom: 4vw;
-}
-.img-error-btn, .img-error-btn2 {
-width: 50%;
-padding:2vw 4vw;
-background-color: ecaaaa;
-border-radius: 10px;
-}
-.img-error-btn:active, .img-error-btn2:active {
-opacity: .6;
+
+for (let ab = 1; ab <= full2Ans.length; ab++) {
+$('.hint-append').append(`
+<div class="answer-ct answer-ct${ab}"><div class="ans2" id="hintct${ab}"></div></div>
+`);
 }
 
-.full-error {
-width: 100vw; height: 100vh;
-position: fixed; top:0; left:0;
-z-index: 100;
-display: none; flex-wrap: wrap;
-background-color: white;
-justify-content: center; align-content: center;
+for (let ad = 1; ad <= 4; ad++) {
+	$('.letters-bg').append(`
+	<div class="letter-ct" id="noct${ad}"></div>
+  `);
 }
-.full-error-txt {
-width: 100vw;
-text-align: center;
-font-size: 6vw;
-padding-bottom: 4vh;
-}
-</style>
-<div class="full-error">
-	<div class="full-error-txt">Network disconnected!</div>
-	<div class="img-error-btn2">RELOAD</div>
-</div>
-<div class="game-over-con">
-  <div class="game-over">
-  <div class="g-o-ti">FAILED</div>
-  <div class="score"><img src="../../res/coins.webp" class="coins-img"><div class="coin-txt">-1</div></div>
-  <div class="g-o-ct-bg">
-  <img src="../../res/home.webp" class="button home">
-  <img src="../../res/retry.webp" class="button retry">
-  </div>
-  </div>
-</div>
 
-<div class="finish-con"></div>
-
-<div class="out-coins-con">
-  <div class="out-coins">
-  <div class="out-coins-ti">oops!<br>You are out of coins</div>
-  <div class="out-coins-ct">Watch a video or buy the coins</div>
-  <div class="out-coins-ct2">Press DONE to claim your reward</div>
-  <div class="out-coins-btn-bg">
-  <img src="../../res/ok.webp" class="button btn1">
-  <img src="../../res/cancel.webp" class="button btn3">
-  </div>
-  </div>
-</div>
-
-<div class="full">
-
-  <div class="top">
-   
-   <img src="../../res/back.webp" class="back-img">
-   <div class="levels">LEVEL<span id="main-levels"></span></div>
-   <div class="coins"><img src="../../res/coins.webp" class="coins-img"><div id="coins">0</div></div>
-  </div>
-  
-  <div class="main-img-bg">
- 	<img src="../images/D.webp" class="main-img">
-	<div class="img-error">
-	<div class="img-error-txt">Failed to load Image</div>
-	<div class="img-error-btn">RELOAD</div>
-	</div>
-  </div>
-  <div class="tool-bg">
-  <img src="../../res/clear.webp" class="clear-all"> 
-  <img src="../../res/hint.webp" class="hint">
-  </div>
-  <div class="answer-bg main-answer-bg"></div>
-</div>
-<div class="letters-bg"></div>
-<div class="hint-bg-bg"></div>
-
-<div class="buy-coins-con">
-<div class="buy-coins-top"></div>
-		<div class="buy-coins-bg">
-			<div class="buy-coins-ct buy-coins-ct1">
-				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 5
-				</div>
-				<div class="buy free active"><img src="../../res/video.webp" class="video-img"> Free</div>
-			</div>
-			
-			<div class="buy-coins-ct buy-coins-ct2">
-				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 60
-				</div>
-				<div class="buy buy1 active">Buy</div>
-			</div>
-			
-			<div class="buy-coins-ct buy-coins-ct3">
-				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 150
-				</div>
-				<div class="buy buy2 active">Buy</div>
-			</div>
-			
-			<div class="buy-coins-ct buy-coins-ct4">
-				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 400
-				</div>
-				<div class="buy buy3 active">Buy</div>
-			</div>
-		</div>
-	</div>
-
-<audio id="finish" src="../../res/finish.mp3" autoplay="false" ></audio>
-<audio id="button" src="../../res/button.mp3" autoplay="false" ></audio>
-<audio id="button2" src="../../res/button2.mp3" autoplay="false" ></audio>
-<audio id="button3" src="../../res/button3.mp3" autoplay="false" ></audio>
-<audio id="over" src="../../res/over.mp3" autoplay="false" ></audio>
-<audio id="hint" src="../../res/hint.mp3" autoplay="false" ></audio>
-<audio id="win" src="../../res/win.mp3" autoplay="false" ></audio>
+for (let ac = 1; ac <= full2Ans.length; ac++) {
+  $('.letters-bg').append(`
+<div class="letter-ct" id="ct${ac}"></div>
 `);
 
-$('.hint-bg-bg').append(`
-<div class="hint-bg-top"></div>
-<div class="hint-bg">
-  <div class="hint-bg-close"><img src="../../res/cancel.webp" width="100%"></div>
-  <div class="hint-top">
-    <img class="button show-hint" src="../../res/hint2.webp">
-    <img class="button skip" src="../../res/skip2.webp">
-    </div>
-  <div class="answer-bg hint-append"></div>	         
-</div>
-`);
+if (ac == full2Ans.length) {
+  readyFunction();
+}
+}
 
-$(".finish-con").append(`
-<div class="game-over game-over-2">
-		<div class="g-o-ti">COMPLETED</div>
-		<div class="main-img-bg2">
-			<img src="" class="completed-img">
-		 </div>
-		 <div class="ans-txt" id="ans-txt"></div>
-		<div class="score2"><img class="coins-img" src="../../res/coins.webp"><span class="coin-txt coin-txt2" id="coin-txt"></span></div>
-		<div class="g-o-ct-bg">
-			<img src="../../res/skip.webp" class="button next">
-		</div>
-</div>
-`);
 
-var coins = localStorage.getItem("coins");
+setTimeout(() => {$(".answer-bg, .back-img").css({transform:'scale(1)', opacity:'1'});}, 100);
+setTimeout(() => {$(".letters-bg").css({transform:'scale(1)', opacity:'1'});}, 200);
+setTimeout(() => {$(".tool-bg").css({transform:'scale(1)', opacity:'1'});}, 300);
+
+
+function Outro() {
+setTimeout(() => {
+$(".game-over-con").fadeOut(); 
+$(".game-over").css({transform:'scale(1.2)', opacity:'0'});
+$('.levels, .coins').css({transform: 'scale(1.2)', opacity:'0'});
+}, 100);
+setTimeout(() => {$(".answer-bg, .main-img-bg, .back-img").css({transform:'scale(1.2)', opacity:'0'});}, 100);
+setTimeout(() => {$(".letters-bg").css({transform:'scale(1.2)', opacity:'0'});}, 150);
+setTimeout(() => {$(".tool-bg").css({transform:'scale(1.2)', opacity:'0'});}, 200);
+}
+
+if (FullImage == 0) {
+$(".main-img-bg2").css({visibility:'hidden'});
+}
+function Retryminus() {
+	if (coins >= 1) {
+			coins --;
+			localStorage.setItem("coins", coins);
+			document.getElementById("coins").innerHTML = coins;
+			}
+	}
+
+	function MainShuffle() {
+		$(function () {
+		var parent = $(".letters-bg");
+		var divs = parent.children();
+		while (divs.length) {
+		parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+		}
+		});
+	}
+   MainShuffle();
+
+var hint = 0;
+
+function LevelNext() {
+coins ++;
+localStorage.setItem("coins", coins);
 document.getElementById("coins").innerHTML = coins;
-
-function AnsPlus() {
-  ans ++; return
 }
-var FullImage = 0;
+document.getElementById("coin-txt").innerHTML = "+1";
 
+
+$('.show-hint').click(function() {
+	if (coins < 1) {
+		document.getElementById("button3").play();
+		$('.out-coins-con').css({display:'flex'});
+		setTimeout(function() {$('.hint-bg-bg').fadeOut();}, 100 );
+		setTimeout(function() {$('.hint-bg').css({top: '0'});}, 400 );
+	} else {
+		document.getElementById("hint").play();
+		hint++;
+		$("#hintct" + hint).html(window["ct" + hint]);
+		coins --; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
+		if (hint == full2Ans.length - 1) {
+			$(".show-hint").css({visibility:'hidden'});
+		}
+	}
+});
+
+
+$(document).ready(function(){
+vhHeight = $(window).outerHeight();
+fullHeight = $(".full").outerHeight();
+calcHeight = vhHeight - fullHeight;
+$(".letters-bg").css({height: '' + (calcHeight - 10)});
+
+$("#ans-txt").html(fullAns);
+
+var Inter = localStorage.getItem('Inter');
+$('.back-img, .home, .retry, .next').click(function() {
+if (Inter == 5) {
+	Inter = 0;
+	localStorage.setItem('Inter', 0);
+	parent.location='https://inter';
+} else {
+	Inter ++;
+	localStorage.setItem('Inter', Inter);
+}
+});
+
+$('.retry').click(function() {
+$(".ans").empty();
+ans = 0; digit = 1;
+$('.letter-ct').css({visibility: 'visible'});
+setTimeout(() => {$(".game-over").css({transform:'scale(1.2)', opacity:'0'});}, 100);
+$('.game-over-con').fadeOut();
+setTimeout(() => {$(".game-over").css({transform:'scale(1)', opacity:'1'});}, 400);
+});
+
+
+$('.clear-all').click(function() {
+	$(".ans").empty();
+	ans = 0;
+	digit = 1;
+	$('.letter-ct').css({
+		'visibility': 'visible'
+	});
+});
+
+
+$('.skip').click(function() {
+setTimeout(() => {
+$('.hint-bg-bg').fadeOut();
+$(".hint-bg").css({transform:'translateY(20%)', opacity:'0'});
+}, 100);
+setTimeout(() => {$(".hint-bg").css({transform:'translateY(0)', opacity:'1'});}, 450);
+if (coins < 10) {
+document.getElementById("button3").play();
+$('.out-coins-con').css({display:'flex'});
+setTimeout(function() {$('.hint-bg-bg').fadeOut();}, 100 );
+setTimeout(function() {$('.hint-bg').css({top: '0'});}, 400 );
+} else {
+document.getElementById("win").play();
+coins --; coins --; coins --; coins --; coins --;
+coins --; coins --; coins --; coins --; coins --;
+localStorage.setItem("coins", coins);
+$("#coins").html(coins);
+$('.finish-con').css({display:'flex'});
+$('.score2').fadeOut(0);
+$('.hint-bg-bg').fadeOut();
+Levelfunct();
+}
+});
+
+
+$('.back-img, .home').click(function() {
+Outro();
+setTimeout(function() {window.history.back();}, 900);
+});
+
+$('.next').click(function() {
+Outro();
+});
+
+$('.btn1, .btn3').click(function() {
+setTimeout(() => {$(".out-coins").css({transform:'scale(1.2)', opacity:'0'});}, 100);
+$('.out-coins-con').fadeOut();
+setTimeout(() => {$(".out-coins").css({transform:'scale(1)', opacity:'1'});}, 400);
+});
+
+$('.btn1').click(function() {
+setInterval(() => {
+coins = localStorage.getItem("coins");
+$("#coins").html(coins);
+}, 2000);
+$(".buy-coins-con").fadeIn();
+});
+
+$('.buy-coins-top').click(function() {
+$(".buy-coins-con").fadeOut();
+});
+
+$(".free").click(function() {
+setTimeout(() => {parent.location="https://reward";}, 350);
+});
+$(".buy1").click(function() {
+setTimeout(() => {parent.location="https://item1";}, 350);
+});
+$(".buy2").click(function() {
+setTimeout(() => {parent.location="https://item2";}, 350);
+});
+$(".buy3").click(function() {
+setTimeout(() => {parent.location="https://item3";}, 350);
+});
+		
+$('.cancel').click(function() {
+$('.no-more-vid-con').fadeOut();
+});
+		
+$('.hint').click(function() {
+$(".hint-bg-bg").css({display: 'block'});
+});
+		
+$('.hint-bg-close, .hint-bg-top').click(function() {
+$(".hint-bg-bg").fadeOut();
+$('.hint-bg').css({transform: 'translateY(20%)', opacity:'0'});
+setTimeout(() => {$('.hint-bg').css({transform: 'translateY(0%)', opacity:'1'});}, 400);
+});
+
+$('.letter-ct').click(function() {
+document.getElementById("button").play();
+});
+$('.btn1, .btn3, .home, .retry, .back-img, .hint, .cancel, .clear-all').click(function() {
+document.getElementById("button2").play();
+});
+	
+//answers
+
+});
+
+function readyFunction() {
+
+for (let ws = 1; ws <= fullAns.length; ws++) {
+	if (fullAns.charAt(ws - 1) == " ") {
+		whiteSpace ++;
+		$("<break></break>").insertAfter(".answer-ct" + [ws - whiteSpace]);
+	}
+}
+
+ansLength = fullAns.length - whiteSpace;
+
+for (let a = 1; a <= full2Ans.length; a++) {
+	window["ct" + a] = full2Ans.charAt(a - 1);
+	window["hintct" + a] = full2Ans.charAt(a - 1);
+	$("#ct" + a).html(window["ct" + a]);
+
+	if (a == full2Ans.length) {
+		letterClick();
+		repeatNumber();
+	}
+}
+
+document.getElementById("noct1").innerHTML = noct1;
+document.getElementById("noct2").innerHTML = noct2;
+document.getElementById("noct3").innerHTML = noct3;
+document.getElementById("noct4").innerHTML = noct4;
+
+$(".main-img").error(function () { 
+$(".img-error").css({display:"flex"});
+$(".main-img").css({visibility:'hidden'}); 
+});
+
+$(".back-img, .coins-img, .clear-all, .hint, .button").error(function() {
+$("img").fadeOut(0);
+$(".full-error").css({display:'flex'});
+});
+
+$(".img-error-btn").click(function() {
+$(".img-error").fadeOut("fast");
+$(".main-img").attr("src", "../images/" + levels + ".webp");
+$(".main-img").css({visibility:'visible'});
+});
+$(".img-error-btn2").click(function() {
+setTimeout(() => {location.reload();}, 200);
+});
+
+}
+
+function letterClick() {
+$(".letter-ct").click(function() {
+
+ctVar = parseInt($(this).attr('id').replace("ct", "").replace("no", "-"));
+if (ctVar > 0) {
+	tmp2 = window["ct" + ctVar];
+} else {
+	tmp = ctVar * -1;
+	tmp2 = window["noct" + tmp];
+}
+$("#ans" + digit).html(tmp2);
+
+if (digit == ctVar) {
+	ans ++; digit++;
+	finalCheck();
+} else {digit++; finalCheck(); }
+
+$(this).css({visibility:'hidden'});
+
+});
+}
+
+
+function finalCheck() {
+setTimeout(() => {
+if (digit == full2Ans.length + 1) {
+	console.log(digit, ans);
+	if (ans == full2Ans.length) {
+		Levelfunct();
+		$('.finish-con').css({display:'flex'});
+		document.getElementById("finish").play();
+		coins ++; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
+	} else {
+		$('.game-over-con').css({display:'flex'});
+		document.getElementById("over").play();
+		coins --; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
+	}
+}
+}, 200);
+}
