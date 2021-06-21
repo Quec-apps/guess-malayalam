@@ -11,7 +11,7 @@ $("body").prepend(`
 .img-error {
 width: 100%; height: 100%;
 position: absolute; top: 0; left: 0;
-display: none; flex-wrap: wrap; 
+display: flex; flex-wrap: wrap; 
 justify-content: center; align-content: center;
 }
 .img-error-txt {
