@@ -130,27 +130,6 @@ margin:0 auto;
 border-radius:10px;
 background:white;
 }
-
-.img-error {
-width: 100%; height: 100%;
-position: absolute; top: 0; left: 0;
-display: flex; flex-wrap: wrap; 
-justify-content: center; align-content: center;
-visibility: hidden;
-}
-.img-error-txt {
-width: 100%; text-align: center;
-padding-bottom: 4vw;
-}
-.img-error-btn {
-width: 50%;
-padding:2vw 4vw;
-background-color: ecaaaa;
-border-radius: 10px;
-}
-.img-error-btn:active {
-opacity: .6;
-}
 					
 		.answer-bg {
 			width:100%;
