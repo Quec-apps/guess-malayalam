@@ -10,7 +10,7 @@ src: url(res/fonts/Rubik-Medium.ttf);
 html {width:100vw; height:100vh; overflow:hidden;}    
 body {
 			margin:0; width:100vw; height:100vh; overflow: hidden;
-			background-color:white;
+			background-color:#e8c3c3;
 			font-family:Rubik;
 			font-weight:1000;
 			color:#000000;
@@ -154,6 +154,7 @@ background-color: rgba(0, 0, 0, .3);
 .feedback-ct {
 width: 50%; height: 7vh;
 background-color: #ecaaaa;
+box-shadow: 0px 0px 7px #00000024;
 border-radius: 10px;
 display: flex;
 justify-content: center; align-items: center;
@@ -204,7 +205,7 @@ setTimeout(function() {$('.ct3').css({'transform': 'scale(1)','opacity': '1'});}
 setTimeout(function() {$('.ct4').css({'transform': 'scale(1)','opacity': '1'});}, 400);
 setTimeout(function() {$('.ct5').css({'transform': 'scale(1)','opacity': '1'});}, 500);
 
-   localStorage.setItem("levels_total", 31);
+   localStorage.setItem("levels_total", 36);
 
    var levels_total = parseInt(localStorage.getItem('levels_total'));
    var iilevels_total = parseInt(localStorage.getItem('iilevels_total'));

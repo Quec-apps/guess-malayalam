@@ -1,3 +1,5 @@
+var whiteSpace = 0;
+
 if (localStorage.getItem("mode") == "movie") {
 	levels = localStorage.getItem("levels");
 	total = parseInt(localStorage.getItem("levels_total"));

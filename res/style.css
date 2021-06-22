@@ -13,11 +13,11 @@ body {
 			width:100vw;
            height:100vh;
            overflow:hidden;
-			background-color: white;
+			background-color: #e8c3c3;
             font-weight:1000;
 			text-align:center;
 			font-family:Rubik;
-			color: #351d1d;
+			color: #3B0A01;
 			user-select: none; /* supported by Chrome and Opera */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -165,9 +165,9 @@ background:white;
 			font-size:6vw;
 			text-align:center;
 			border-radius:10px;
-			background-color: #ecaaaa;
-			color: #3d3d3d;
-			box-shadow: 0px 0px 7px #0000004d;
+			background-color: #dca1a1;
+			color: #3B0A01;
+			box-shadow: 0px 0px 7px #00000024;
 			margin:1vw;		
 			}
 			
@@ -453,11 +453,11 @@ animation: buy-coins-bg 400ms linear 1;
 	100% {opacity: 1;}
 }
 .buy-coins-top {
-width: 100vw; height: 20vh;
+width: 100vw; height: 50vh;
 }
 .buy-coins-bg {
-width: 100vw; height: 80vh; background-image:linear-gradient(to bottom, #75cdd9, #9fe0e6, #75cdd9);
-border-radius: 10px; display: flex; flex-wrap: wrap; justify-content: center; align-content: center;
+width: 100vw; height: 50vh; background-image:linear-gradient(to bottom, #ecaaaa, #b17e7e);
+border-radius: 10px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
 transition: all 400ms ease;
 animation: buy-coins-bg 400ms ease 1;
 } @keyframes buy-coins-bg {
@@ -465,14 +465,14 @@ animation: buy-coins-bg 400ms ease 1;
 	100% {transform:  translateY(0%); opacity: 1;}
 }
 .buy-coins-ct {
-width: 80vw; height: 15vw; margin-top: 5vh;
-background-color: #4d7ae8; border-radius: 10px;
+width: 80vw; height: 15vw;
+background-color: #eed5d4; border-radius: 10px; box-shadow: 0px 0px 8px #9e6a6a;
 display: flex; justify-content: space-between; align-items: center;
 }
 .ct-sub-bg {
 width: 32vw;
 display: flex; justify-content: space-evenly; align-items: center;
-font-size: 6vw; color: white;
+font-size: 6vw; color: #3D3D3D;
 }
 .hint-img {
 width: 10vw; height: 10vw;
@@ -480,7 +480,7 @@ width: 10vw; height: 10vw;
 .buy {
 width: 20vw; height: 11vw;
 transform: translateX(-4.7vw);
-background-color: white;
+background-color: #f5ebea;
 display: flex; justify-content: space-evenly; align-items: center;
 border-radius: 10px;
 }

@@ -300,7 +300,7 @@ $(".full-error").css({display:'flex'});
 });
 
 $(".img-error-btn").click(function() {
-$(".img-error").fadeOut("fast");
+$(".img-error").fadeOut(0);
 $(".main-img").attr("src", "../images/" + levels + ".webp");
 $(".main-img").css({visibility:'visible'});
 });
@@ -336,7 +336,6 @@ $(this).css({visibility:'hidden'});
 function finalCheck() {
 setTimeout(() => {
 if (digit == full2Ans.length + 1) {
-	console.log(digit, ans);
 	if (ans == full2Ans.length) {
 		Levelfunct();
 		$('.finish-con').css({display:'flex'});
@@ -346,8 +345,10 @@ if (digit == full2Ans.length + 1) {
 	} else {
 		$('.game-over-con').css({display:'flex'});
 		document.getElementById("over").play();
-		coins --; localStorage.setItem("coins", coins);
-		$("#coins").html(coins);
+		if (coins > 0) {
+			coins --; localStorage.setItem("coins", coins);
+			$("#coins").html(coins);
+		}
 	}
 }
 }, 200);
