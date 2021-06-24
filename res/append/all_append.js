@@ -112,21 +112,21 @@ padding-bottom: 4vh;
 			
 			<div class="buy-coins-ct buy-coins-ct2">
 				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 60
+					<img src="../../res/coins.webp" class="hint-img"> + 50
 				</div>
 				<div class="buy buy1 active">Buy</div>
 			</div>
 			
 			<div class="buy-coins-ct buy-coins-ct3">
 				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 150
+					<img src="../../res/coins.webp" class="hint-img"> + 100
 				</div>
 				<div class="buy buy2 active">Buy</div>
 			</div>
 			
 			<div class="buy-coins-ct buy-coins-ct4">
 				<div class="ct-sub-bg">
-					<img src="../../res/coins.webp" class="hint-img"> + 400
+					<img src="../../res/coins.webp" class="hint-img"> + 150
 				</div>
 				<div class="buy buy3 active">Buy</div>
 			</div>
