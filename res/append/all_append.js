@@ -121,14 +121,14 @@ padding-bottom: 4vh;
 				<div class="ct-sub-bg">
 					<img src="../../res/coins.webp" class="hint-img"> + 100
 				</div>
-				<div class="buy buy2 active">Buy</div>
+				<div class="buy buy2 active"><div class="buy-ct">Buy</div><div class="off">(7% off)</div></div>
 			</div>
 			
 			<div class="buy-coins-ct buy-coins-ct4">
 				<div class="ct-sub-bg">
 					<img src="../../res/coins.webp" class="hint-img"> + 150
 				</div>
-				<div class="buy buy3 active">Buy</div>
+				<div class="buy buy3 active"><div class="buy-ct">Buy</div><div class="off">(8% off)</div></div>
 			</div>
 		</div>
 	</div>
