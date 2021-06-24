@@ -196,8 +196,6 @@ opacity: .5;
 	</div>
    <audio id="button2" src="res/button2.mp3" autoplay="false" ></audio>
 <script>
-var Version = 2.8;
-
 setTimeout(function() {$('.coffee-img, .coins, .feedback').css({opacity: '1'});}, 200);
 setTimeout(function() {$('.ct1').css({'transform': 'scale(1)','opacity': '1'});}, 100);
 setTimeout(function() {$('.ct2').css({'transform': 'scale(1)','opacity': '1'});}, 200);
@@ -323,7 +321,7 @@ if (iilevels >= 100) {
     
 $('.feedback-ct').click(function() {
 setTimeout(function() {
-    parent.location='mailto:quec.developer@gmail.com?subject=Feedback%20of%20Guess%20Malayalam%20Movie/Actor%20Names%20V' + Version + '&body=Write%20your%20feedback%20here'
+    parent.location='mailto:quec.developer@gmail.com?subject=Feedback%20of%20Guess%20Malayalam%20Movie%20&body=Write%20your%20feedback%20here'
 }, 200);
 });
    </script>
