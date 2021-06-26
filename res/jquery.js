@@ -104,6 +104,21 @@ function Retryminus() {
    MainShuffle();
 
 var hint = 0;
+if (localStorage.getItem("hint") == null) {
+	hint = 0; localStorage.setItem("hint", hint);
+} else {
+	hint = localStorage.getItem("hint");
+}
+
+if (hint > 0) {
+	for (let hi = 0; hi <= hint; hi++) {
+		$("#hintct" + hi).html(full2Ans.charAt(hi - 1));
+	}
+}
+
+if (hint == full2Ans.length - 1) {
+$(".show-hint").css({visibility:'hidden'});
+}
 
 function LevelNext() {
 coins ++;
@@ -121,7 +136,7 @@ $('.show-hint').click(function() {
 		setTimeout(function() {$('.hint-bg').css({top: '0'});}, 400 );
 	} else {
 		document.getElementById("hint").play();
-		hint++;
+		hint++; localStorage.setItem("hint", hint);
 		$("#hintct" + hint).html(window["ct" + hint]);
 		coins --; localStorage.setItem("coins", coins);
 		$("#coins").html(coins);
@@ -184,6 +199,7 @@ $('.out-coins-con').css({display:'flex'});
 setTimeout(function() {$('.hint-bg-bg').fadeOut();}, 100 );
 setTimeout(function() {$('.hint-bg').css({top: '0'});}, 400 );
 } else {
+hint = 0; localStorage.setItem("hint", hint);
 document.getElementById("win").play();
 coins --; coins --; coins --; coins --; coins --;
 coins --; coins --; coins --; coins --; coins --;
@@ -337,6 +353,7 @@ function finalCheck() {
 setTimeout(() => {
 if (digit == full2Ans.length + 1) {
 	if (ans == full2Ans.length) {
+		hint = 0; localStorage.setItem("hint", hint);
 		Levelfunct();
 		$('.finish-con').css({display:'flex'});
 		document.getElementById("finish").play();
