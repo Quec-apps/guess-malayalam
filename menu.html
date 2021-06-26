@@ -62,9 +62,6 @@ position: relative;
 color: white;
 overflow: hidden;
 }
-.ct5 {
-width: 95vw; height: 25vw;
-}
 
 .ct:active {
 	transition:none;
@@ -166,7 +163,18 @@ color: #3d3d3d;
 transition: none;
 opacity: .5;
 }
-
+.newAdded {
+width: 90%;
+background-color: #ecaaaa;
+border-radius: 4px; color: #3B0A01;
+position: relative;
+padding: 1vh 0; text-align: center;
+display: none;
+animation:toast 600ms ease 1;
+} @keyframes toast {
+	0% {transform: scale(1.1); opacity: 0;}
+	100% {transform: scale(1); opacity: 1;}
+}
 	</style>
 </head>
 <body>
@@ -183,7 +191,8 @@ opacity: .5;
 			<div class="ct-fill"></div>
            <div class="ct-txt">MOVIE</div>
            <div class="score"><span id="levels">0</span>/<span id="total"></span></div>
-       </div>
+		   <div class="newAdded"><span id="newLevel"></span> new levels added</div>
+    </div>
        
        <div class="ct ct2">
 		<div class="ct-fill"></div>
@@ -208,9 +217,17 @@ localStorage.setItem("levels_total", 46);
 
 var levels_total = parseInt(localStorage.getItem('levels_total'));
 var iilevels_total = parseInt(localStorage.getItem('iilevels_total'));
-var iiilevels_total = parseInt(localStorage.getItem('iiilevels_total'));
-var ivlevels_total = parseInt(localStorage.getItem('ivlevels_total'));
-var vlevels_total = parseInt(localStorage.getItem('vlevels_total'));
+
+if (localStorage.getItem("old_levels_total") == null) {
+	localStorage.setItem("old_levels_total", levels_total)
+} else {
+	if (levels_total > localStorage.getItem("old_levels_total")) {
+		newLevel = levels_total - localStorage.getItem("old_levels_total");
+		$("#newLevel").html(newLevel);
+		localStorage.setItem("old_levels_total", levels_total);
+		$(".newAdded").fadeIn(0);
+	}
+}
 
 document.getElementById('total').innerHTML=levels_total;
 //document.getElementById('iitotal').innerHTML=iilevels_total;
