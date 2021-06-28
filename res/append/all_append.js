@@ -36,7 +36,7 @@ width: 100vw; height: 100vh;
 position: fixed; top:0; left:0;
 z-index: 100;
 display: none; flex-wrap: wrap;
-background-color: white;
+background-color: #e8c3c3;
 justify-content: center; align-content: center;
 }
 .full-error-txt {
