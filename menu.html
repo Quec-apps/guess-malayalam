@@ -1,7 +1,10 @@
-<html>
+<!DOCTYPE html>
 <head>
     <script src="res/jquery.min.js"></script>
 	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+<script>
+localStorage.setItem("levels_total", 76);
+</script>
 <style>
 @font-face {
 font-family: "Rubik";
@@ -97,8 +100,8 @@ background-color: rgba(0, 0, 0, .3);
 			.score {
 				width:100%;
 				text-align:center;
-				padding-bottom:4vw;
-				font-size:4vw;
+				padding-top:4vw;
+				font-size:6vw;
 				position: relative;
 				}
 				
@@ -190,11 +193,11 @@ animation:toast 600ms ease 1;
     <div class="ct ct1">
 			<div class="ct-fill"></div>
            <div class="ct-txt">MOVIE</div>
-           <div class="score"><span id="levels">0</span>/<span id="total"></span></div>
+           <div class="score"><span id="levels">0</span></div>
 		   <div class="newAdded"><span id="newLevel"></span> new levels added</div>
     </div>
        
-       <div class="ct ct2">
+       <div class="ct ct2" style="display: none;">
 		<div class="ct-fill"></div>
            <div class="ct-txt">ACTOR/ACTRESS</div>
            <div class="score">Coming soon...</div>
@@ -213,8 +216,6 @@ setTimeout(function() {$('.ct3').css({'transform': 'scale(1)','opacity': '1'});}
 setTimeout(function() {$('.ct4').css({'transform': 'scale(1)','opacity': '1'});}, 400);
 setTimeout(function() {$('.ct5').css({'transform': 'scale(1)','opacity': '1'});}, 500);
 
-localStorage.setItem("levels_total", 64);
-
 var levels_total = parseInt(localStorage.getItem('levels_total'));
 var iilevels_total = parseInt(localStorage.getItem('iilevels_total'));
 
@@ -228,9 +229,6 @@ if (localStorage.getItem("old_levels_total") == null) {
 		$(".newAdded").fadeIn(0);
 	}
 }
-
-document.getElementById('total').innerHTML=levels_total;
-//document.getElementById('iitotal').innerHTML=iilevels_total;
 
 function FullHide() {
 setTimeout(function() {$('.coffee-img, .coins, .feedback').css({opacity: '0'});}, 200);
