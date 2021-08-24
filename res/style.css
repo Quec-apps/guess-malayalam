@@ -269,13 +269,16 @@ transition: all 400ms ease;
 		 padding:1vh 0vh;
 	 }
      
-          .button {
-     	width:20vw; height:20vw;
+    .button {
+    width:20vw; height:20vw;
      padding:2vh 3vw;   
      text-align:center; 
      margin:0 auto;
      margin-top:15px;
-     }
+     } .button_hint {
+	width:10vh; height:10vh;
+	padding: 0; margin-top: 0;
+	 }
      
      .button2 {
 	 width:20vw; height:20vw;
@@ -327,10 +330,10 @@ width:100%;
    transition:all .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
    }
    
-   .hint-bg-top {width:100vw; height:40vh; }
+   .hint-bg-top {width:100vw; height:60vh; }
     
    .hint-bg {
-   	width:100%; height:60vh;
+   	width:100%; height:40vh;
 	background-image:linear-gradient(to bottom, #ecaaaa, #b17e7e);
     transition:all 350ms ease;
     border-radius:10vw 10vw 0 0;
@@ -343,6 +346,7 @@ width:100%;
    }
    
    .hint-top {
+	height: 11vh;
    	display:flex;
    flex-wrap:nowrap;
    justify-content:space-around;
