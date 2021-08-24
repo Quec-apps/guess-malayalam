@@ -147,8 +147,8 @@ $('.hint-bg-bg').append(`
 <div class="hint-bg">
   <div class="hint-bg-close"><img src="../../res/cancel.webp" width="100%"></div>
   <div class="hint-top">
-    <img class="button show-hint" src="../../res/hint2.webp">
-    <img class="button skip" src="../../res/skip2.webp">
+    <img class="button button_hint show-hint" src="../../res/hint2.webp">
+    <img class="button button_hint skip" src="../../res/skip2.webp">
     </div>
   <div class="answer-bg hint-append"></div>	         
 </div>
