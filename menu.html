@@ -321,33 +321,6 @@ if (levels >= 100) {
 }, 600); 
 }
 });
-
-/*var iilevels = parseInt(localStorage.getItem("iilevels"));
-if (localStorage.getItem("iilevels") === null) {
-    iilevels = 1;
-    document.getElementById("iilevels").innerHTML = "1";
-    parseInt(localStorage.setItem("iilevels", iilevels)	);
-} else {document.getElementById("iilevels").innerHTML = iilevels;}
-$('.ct2').click(function(){
-localStorage.setItem("mode", "actor");
-if (iilevels <= iilevels_total) {
-setTimeout(function() {
-if (iilevels <= 9) {
-	parent.location='actor/html/00'+ iilevels + '.html';
-}
-if (iilevels >= 10) {
-	parent.location='actor/html/0'+ iilevels + '.html';
-}
-if (iilevels >= 100) {
-	parent.location='actor/html/'+ iilevels + '.html';
-}
-}, 700);
-} else {
-	setTimeout(function() {
-	parent.location='wait_update.html';
-}, 600); 
-}
-});*/
     
 $('.feedback-ct').click(function() {
 setTimeout(function() {
