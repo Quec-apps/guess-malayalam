@@ -202,6 +202,19 @@ animation:toast 600ms ease 1;
            <div class="ct-txt">ACTOR/ACTRESS</div>
            <div class="score">Coming soon...</div>
        </div>
+
+	   <style>
+		.rate-bg {
+		width: 80vw;
+		background-color: #dca2a1; border-radius: 10px;
+		text-align: center; padding: 2vh; color: #3b0b01;
+		transition: all 350ms ease;
+		animation:feedback 1s ease-in 1;
+		} .rate-bg:active {
+		transition: none; opacity: .5;
+		}
+	   </style>
+	   <div class="rate-bg">Rate us on Google play store</div>
        
     </div><!--ct-bg closed-->    
     <div class="feedback">
@@ -231,7 +244,7 @@ if (localStorage.getItem("old_levels_total") == null) {
 }
 
 function FullHide() {
-setTimeout(function() {$('.coffee-img, .coins, .feedback').css({opacity: '0'});}, 200);
+setTimeout(function() {$('.coffee-img, .coins, .feedback, .rate-bg').css({opacity: '0'});}, 200);
 setTimeout(function() {$('.ct1').css({'transform': 'scale(1.2)','opacity': '0'});}, 100);
 setTimeout(function() {$('.ct2').css({'transform': 'scale(1.2)','opacity': '0'});}, 200);
 setTimeout(function() {$('.ct3').css({'transform': 'scale(1.2)','opacity': '0'});}, 300);
@@ -338,6 +351,12 @@ if (iilevels >= 100) {
 $('.feedback-ct').click(function() {
 setTimeout(function() {
     parent.location='mailto:quec.developer@gmail.com?subject=Feedback%20of%20Guess%20Malayalam%20Movie%20&body=Write%20your%20feedback%20here'
+}, 200);
+});
+
+$(".rate-bg").click(function() {
+setTimeout(() => {
+	parent.location="https://play.google.com/store/apps/details?id=com.quec.guess.malayalam";	
 }, 200);
 });
    </script>
