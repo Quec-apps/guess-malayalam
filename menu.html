@@ -5,7 +5,6 @@
 <script>
 localStorage.setItem("levels_total", 121);
 </script>
-	
 <style>
 @font-face {
 font-family: "Rubik";
@@ -205,16 +204,33 @@ animation:toast 600ms ease 1;
        </div>
 
 	   <style>
-		.rate-bg {
-		width: 80vw;
+		.buy-bg {
+		width: 85vw; height: 10vh;
 		background-color: #dca2a1; border-radius: 10px;
-		text-align: center; padding: 2vh; color: #3b0b01;
+		background-image: url(res/coins-bg.webp); background-size: 100% 100%;
+		display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+		transition: all 350ms ease;
+		animation:feedback 1s ease-in 1;
+		} .buy-bg:active {
+		transition: none; opacity: .5;
+		}
+		.buy-txt {width: 100%; text-align: center;}
+		.buy-now {background-color: white; color: #3b0b01; padding: .5vh 4vw; border-radius: 10px;}
+
+		.rate-bg {
+		width: 85vw;
+		background-color: #dca2a1; border-radius: 10px;
+		text-align: center; padding: 2vh 0; color: #3b0b01;
 		transition: all 350ms ease;
 		animation:feedback 1s ease-in 1;
 		} .rate-bg:active {
 		transition: none; opacity: .5;
 		}
 	   </style>
+	   <div class="buy-bg">
+			<div class="buy-txt">Rs. 0.5 per Coins</div>
+			<div class="buy-now">BUY</div>
+	   </div>
 	   <div class="rate-bg">Rate us on Google play store</div>
        
     </div><!--ct-bg closed-->    
@@ -245,7 +261,7 @@ if (localStorage.getItem("old_levels_total") == null) {
 }
 
 function FullHide() {
-setTimeout(function() {$('.coffee-img, .coins, .feedback, .rate-bg').css({opacity: '0'});}, 200);
+setTimeout(function() {$('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg').css({opacity: '0'});}, 200);
 setTimeout(function() {$('.ct1').css({'transform': 'scale(1.2)','opacity': '0'});}, 100);
 setTimeout(function() {$('.ct2').css({'transform': 'scale(1.2)','opacity': '0'});}, 200);
 setTimeout(function() {$('.ct3').css({'transform': 'scale(1.2)','opacity': '0'});}, 300);
@@ -283,7 +299,7 @@ document.getElementById("button2").play();
 FullHide();
 });
 
-$('.coins').click(function() {
+$('.coins, .buy-bg').click(function() {
 document.getElementById("button2").play();
 FullHide();
 setTimeout(() => {parent.location="get_coins.html";}, 700);
@@ -321,6 +337,33 @@ if (levels >= 100) {
 }, 600); 
 }
 });
+
+/*var iilevels = parseInt(localStorage.getItem("iilevels"));
+if (localStorage.getItem("iilevels") === null) {
+    iilevels = 1;
+    document.getElementById("iilevels").innerHTML = "1";
+    parseInt(localStorage.setItem("iilevels", iilevels)	);
+} else {document.getElementById("iilevels").innerHTML = iilevels;}
+$('.ct2').click(function(){
+localStorage.setItem("mode", "actor");
+if (iilevels <= iilevels_total) {
+setTimeout(function() {
+if (iilevels <= 9) {
+	parent.location='actor/html/00'+ iilevels + '.html';
+}
+if (iilevels >= 10) {
+	parent.location='actor/html/0'+ iilevels + '.html';
+}
+if (iilevels >= 100) {
+	parent.location='actor/html/'+ iilevels + '.html';
+}
+}, 700);
+} else {
+	setTimeout(function() {
+	parent.location='wait_update.html';
+}, 600); 
+}
+});*/
     
 $('.feedback-ct').click(function() {
 setTimeout(function() {
@@ -333,6 +376,6 @@ setTimeout(() => {
 	parent.location="https://play.google.com/store/apps/details?id=com.quec.guess.malayalam";	
 }, 200);
 });
-   </script>
+</script>
 </body>
 </html>
