@@ -159,7 +159,6 @@ box-shadow: 0px 0px 7px #00000024;
 border-radius: 10px;
 display: flex;
 justify-content: center; align-items: center;
-color: #3d3d3d;
 }
 	
 .feedback-ct:active {
@@ -217,14 +216,12 @@ animation:toast 600ms ease 1;
 		.buy-txt {width: 100%; text-align: center;}
 		.buy-now {background-color: white; color: #3b0b01; padding: .5vh 4vw; border-radius: 10px;}
 
-		.millionaire-bg {
-		width: 90vw; height: 11vw;
-		background-image: url(res/millionaire.webp);
-		background-size: 100% 100%;
+		.ad-bg {
+		width: 98vw; height: 15vw;
 		border-radius: 10px; overflow: hidden;
 		transition: all 350ms ease;
 		animation:feedback 1s ease-in 1;
-		} .millionaire-bg:active {
+		} .ad-bg:active {
 		transition: none; opacity: .5;
 		}
 
@@ -242,9 +239,7 @@ animation:toast 600ms ease 1;
 			<div class="buy-txt">Rs. 0.5 per Coins</div>
 			<div class="buy-now">BUY</div>
 	   </div>
-	   <div class="millionaire-bg">
-
-	   </div>
+	   <img src="" class="ad-bg">
 	   <div class="rate-bg">Rate us on Google play store</div>
        
     </div><!--ct-bg closed-->    
@@ -274,8 +269,18 @@ if (localStorage.getItem("old_levels_total") == null) {
 	}
 }
 
+adVar = Math.floor(Math.random() * 4 + 1);
+$(".ad-bg").attr("src", "res/ad/"+adVar+".png");
+
+if (adVar == 1 || adVar == 2)
+    link = "https://play.google.com/store/apps/details?id=com.quec.brain.hit";
+if (adVar == 3)
+    link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+if (adVar == 4)
+    link = "https://play.google.com/store/apps/details?id=com.quec.name.the.image";
+
 function FullHide() {
-setTimeout(function() {$('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .millionaire-bg').css({opacity: '0'});}, 200);
+setTimeout(function() {$('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg').css({opacity: '0'});}, 200);
 setTimeout(function() {$('.ct1').css({'transform': 'scale(1.2)','opacity': '0'});}, 100);
 setTimeout(function() {$('.ct2').css({'transform': 'scale(1.2)','opacity': '0'});}, 200);
 setTimeout(function() {$('.ct3').css({'transform': 'scale(1.2)','opacity': '0'});}, 300);
@@ -318,12 +323,6 @@ document.getElementById("button2").play();
 FullHide();
 setTimeout(() => {parent.location="get_coins.html";}, 700);
 });
-
-$('.coffee-img').click(function() {
-setTimeout(function() {
-parent.location='https://buymeacoffee.com/ofordy';
-}, 400);
-});
 	
 var levels = parseInt(localStorage.getItem("levels"));
 if (localStorage.getItem("levels") === null) {
@@ -351,33 +350,6 @@ if (levels >= 100) {
 }, 600); 
 }
 });
-
-/*var iilevels = parseInt(localStorage.getItem("iilevels"));
-if (localStorage.getItem("iilevels") === null) {
-    iilevels = 1;
-    document.getElementById("iilevels").innerHTML = "1";
-    parseInt(localStorage.setItem("iilevels", iilevels)	);
-} else {document.getElementById("iilevels").innerHTML = iilevels;}
-$('.ct2').click(function(){
-localStorage.setItem("mode", "actor");
-if (iilevels <= iilevels_total) {
-setTimeout(function() {
-if (iilevels <= 9) {
-	parent.location='actor/html/00'+ iilevels + '.html';
-}
-if (iilevels >= 10) {
-	parent.location='actor/html/0'+ iilevels + '.html';
-}
-if (iilevels >= 100) {
-	parent.location='actor/html/'+ iilevels + '.html';
-}
-}, 700);
-} else {
-	setTimeout(function() {
-	parent.location='wait_update.html';
-}, 600); 
-}
-});*/
     
 $('.feedback-ct').click(function() {
 setTimeout(function() {
@@ -391,9 +363,9 @@ setTimeout(() => {
 }, 200);
 });
 
-$(".millionaire-bg").click(function() {
+$(".ad-bg").click(function() {
 setTimeout(() => {
-	parent.location="https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";	
+	parent.location= link;	
 }, 200);
 });
 </script>
