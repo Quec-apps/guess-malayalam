@@ -4,12 +4,13 @@
 	<script src="res/jquery.min.js"></script>
 	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
 	<script>
-		localStorage.setItem("levels_total", 197);
+		localStorage.levels_total = 197;
+		localStorage.actorLevels_total = 138;
 	</script>
 	<style>
 		@font-face {
 			font-family: "Rubik";
-			src: url(res/fonts/Rubik-Medium.ttf);
+			src: url(res/fonts/Roboto-Medium.ttf);
 		}
 
 		html {
@@ -23,7 +24,7 @@
 			width: 100vw;
 			height: 100vh;
 			overflow: hidden;
-			background-color: #e8c3c3;
+			background-color: #f2f3fc;
 			font-family: Rubik;
 			font-weight: 1000;
 			color: #000000;
@@ -76,52 +77,36 @@
 
 		.ct {
 			width: 95vw;
-			MAX-WIDTH: 500PX;
-			height: 150px;
+			max-width: 500PX;
+			height: 120px;
 			border-radius: 10px;
 			transition: all .3s;
-			box-shadow: 3px 7px 12px #00000026;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 			align-content: center;
 			margin-top: 2vh;
-			background-size: 100% 100%;
 			transform: scale(1.2);
 			opacity: 0;
 			transition: all 350ms ease;
 			position: relative;
 			color: white;
+			background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 			overflow: hidden;
+			box-shadow: 0px 0px 18px rgba(0, 0, 0, .3);
 		}
 
 		.ct:active {
 			transition: none;
 			opacity: .6 !important;
 		}
-
-		.ct1 {
-			background-image: url(res/movie.webp);
-		}
-
-		.ct2 {
-			background-image: url(res/actor.webp);
-		}
-
-		.ct3 {
-			background-image: url(res/song.webp);
-		}
-
-		.ct-fill {
-			width: 100%;
-			height: 100%;
+		.ct-main-img {
+			width: 60px;
+			height: 60px;
 			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: rgba(0, 0, 0, .3);
+			top: 20%;
+			left: 10%;
 		}
-
-
 		.ct-img {
 			width: 30vw;
 			height: 30vw;
@@ -206,6 +191,7 @@
 				opacity: 1;
 			}
 		}
+		
 	</style>
 </head>
 
@@ -221,20 +207,35 @@
 
 	<div class="ct-bg">
 		<div class="ct ct1">
-			<div class="ct-fill"></div>
+			<img src="res/movie2.png" class="ct-main-img">
 			<div class="ct-txt">MOVIE</div>
 			<div class="score"><span id="levels">0</span></div>
 			<div class="newAdded"><span id="newLevel"></span> new levels added</div>
 		</div>
 
 		<div class="ct ct2">
-			<div class="ct-fill"></div>
+			<style>
+				.new-badge {
+					position: absolute;
+					top: 0px; left: -30px;
+					width: 120px;
+					height: 30px;
+					transform: rotate(-25deg);
+					background-color: aqua;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: #3c0202;
+				}
+			</style>
+			<div class="new-badge">NEW</div>
+			<img src="res/actor2.png" class="ct-main-img">
 			<div class="ct-txt">ACTOR/ACTRESS</div>
-			<div class="score">Coming soon...</div>
+			<div class="score"><span id="actor-level">0</span></div>
 		</div>
 
 		<div class="ct ct3">
-			<div class="ct-fill"></div>
+			<img src="res/song.png" class="ct-main-img">
 			<div class="ct-txt">Songs</div>
 			<div class="score">Coming soon...</div>
 		</div>
@@ -257,13 +258,14 @@
 
 			.rate-bg {
 				width: 85vw;
-				background-color: #dca2a1;
+				background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 				border-radius: 10px;
 				text-align: center;
 				padding: 2vh 0;
-				color: #3b0b01;
+				color:white;
 				transition: all 350ms ease;
 				animation: feedback 1s ease-in 1;
+				font-weight: 500;
 			}
 
 			.rate-bg:active {
@@ -285,7 +287,6 @@
 		setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 500);
 
 		var levels_total = parseInt(localStorage.getItem('levels_total'));
-		var iilevels_total = parseInt(localStorage.getItem('iilevels_total'));
 
 		if (localStorage.getItem("old_levels_total") == null) {
 			localStorage.setItem("old_levels_total", levels_total)
@@ -297,6 +298,16 @@
 				$(".newAdded").fadeIn(0);
 			}
 		}
+
+		if (localStorage.actorLevel == null) {
+			actorLevel = 1;
+			localStorage.actorLevel = actorLevel;
+		}
+		actorLevel = parseInt(localStorage.actorLevel);
+		actorLevels_total = localStorage.actorLevels_total;
+		console.log(actorLevel)
+		$("#actor-level").html(actorLevel);
+		console.log(actorLevel)
 
 		adVar = Math.floor(Math.random() * 4 + 1);
 		$(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
@@ -342,7 +353,7 @@
 			document.getElementById("coins").innerHTML = coins;
 		}
 
-		$('.ct1').click(function () {
+		$('.ct1, .ct2').click(function () {
 			document.getElementById("button2").play();
 			FullHide();
 		});
@@ -372,6 +383,19 @@
 					if (levels >= 100) {
 						parent.location = 'movie/html/' + levels + '.html';
 					}
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+		console.log(actorLevel);
+		console.log(actorLevels_total);
+		$(".ct2").click(function() {
+			if (actorLevel <= actorLevels_total) {
+				setTimeout(function () {
+					parent.location = 'actor/html/actor_content.html';
 				}, 700);
 			} else {
 				setTimeout(function () {
