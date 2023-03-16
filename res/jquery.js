@@ -2,11 +2,7 @@ document.getElementById("main-levels").innerHTML = levels;
 
 function Levelfunct() {
 	levels ++;
-	if (localStorage.getItem("mode") == "movie") {
-		localStorage.setItem("levels", levels);
-	} else if (localStorage.getItem("mode") == "actor") {
-		localStorage.setItem("iilevels", levels);
-	}
+	localStorage.setItem("levels", levels);
 }
 
 $('.next').click(function() {

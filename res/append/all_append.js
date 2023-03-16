@@ -19,10 +19,12 @@ z-index:99;
 }
 .img-error-txt {
 width: 100%; text-align: center;
-padding-bottom: 4vw;
+padding-bottom: 4vw; color: white;
 }
 .img-error-btn, .img-error-btn2 {
 width: 50%;
+background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(197, 197, 197) 100%);
+color: #6d84f5;
 padding:2vw 4vw;
 background-color: ecaaaa;
 border-radius: 10px;
@@ -36,13 +38,14 @@ width: 100vw; height: 100vh;
 position: fixed; top:0; left:0;
 z-index: 100;
 display: none; flex-wrap: wrap;
-background-color: #e8c3c3;
+background-color: #f2f3fc;
 justify-content: center; align-content: center;
 }
 .full-error-txt {
 width: 100vw;
 text-align: center;
-font-size: 6vw;
+font-size: xx-large;
+color: #062737;
 padding-bottom: 4vh;
 }
 </style>
@@ -133,13 +136,13 @@ padding-bottom: 4vh;
 		</div>
 	</div>
 
-<audio id="finish" src="../../res/finish.mp3" autoplay="false" ></audio>
-<audio id="button" src="../../res/button.mp3" autoplay="false" ></audio>
-<audio id="button2" src="../../res/button2.mp3" autoplay="false" ></audio>
-<audio id="button3" src="../../res/button3.mp3" autoplay="false" ></audio>
-<audio id="over" src="../../res/over.mp3" autoplay="false" ></audio>
-<audio id="hint" src="../../res/hint.mp3" autoplay="false" ></audio>
-<audio id="win" src="../../res/win.mp3" autoplay="false" ></audio>
+<audio id="finish" src="../../res/finish.mp3"  ></audio>
+<audio id="button" src="../../res/button.mp3"  ></audio>
+<audio id="button2" src="../../res/button2.mp3"  ></audio>
+<audio id="button3" src="../../res/button3.mp3"  ></audio>
+<audio id="over" src="../../res/over.mp3"  ></audio>
+<audio id="hint" src="../../res/hint.mp3"  ></audio>
+<audio id="win" src="../../res/win.mp3"  ></audio>
 `);
 
 $('.hint-bg-bg').append(`
