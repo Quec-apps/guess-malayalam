@@ -161,12 +161,19 @@
 			font-size: x-large;
 			transform: translateX(1.8vw);
 		}
+		.special-bg {
+			width: 10vh;
+			height: 10vh;
+			padding-right: 35px;
+			opacity: 0;
+			transition: all .6s ease;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 		.special-img {
 			width: 10vh;
 			height: 10vh;
-			padding-right: 20px;
-			opacity: 0;
-			transition: all .6s ease;
 		}
 		.back-img {
 			position: absolute;
@@ -218,7 +225,21 @@
 			<img src="res/coins.webp" class="coins-img">
 			<div id="coins">0</div>
 		</div>
-		<img src="inct.png" class="special-img">
+		<style>
+			@font-face {
+				font-family: special;
+				src: url(special/Indu_No1.ttf);
+			}
+			.special-txt {
+				font-family: special;
+				font-size: smaller;
+				font-weight: 800;
+			}
+		</style>
+		<div class="special-bg">
+			<img src="special/inct.png" class="special-img">
+			<div class="special-txt">ആദരാഞ്ജലികൾ</div>
+		</div>
 	</div>
 
 	<div class="ct-bg">
@@ -308,7 +329,7 @@
 	</div><!--ct-bg closed-->
 	<audio id="button2" src="res/button2.mp3"></audio>
 	<script>
-		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-img').css({ opacity: '1' }); }, 200);
+		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
 		setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 200);
 		setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 300);
@@ -349,7 +370,7 @@
 			link = "https://play.google.com/store/apps/details?id=com.quec.name.the.image";
 
 		function FullHide() {
-			setTimeout(function () { $('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-img, .ad-class').css({ opacity: '0' }); }, 200);
+			setTimeout(function () { $('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
 			setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
 			setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
 			setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
