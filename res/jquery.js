@@ -31,10 +31,11 @@ $('.next').click(function() {
 
 var ans = 0;
 var digit = 1;
+var totaldigit = 1;
 
 for (let aa = 1; aa <= full2Ans.length; aa++) {
   $('.main-answer-bg').append(`
-<div class="answer-ct answer-ct${aa}"><div class="ans" id="ans${aa}"></div></div>
+<div class="answer-ct ans-ct answer-ct${aa}" id="ans-ct${aa}"><div class="ans" id="ans${aa}"></div></div>
 `);
 }
 
@@ -42,12 +43,6 @@ for (let ab = 1; ab <= full2Ans.length; ab++) {
 $('.hint-append').append(`
 <div class="answer-ct answer-ct${ab}"><div class="ans2" id="hintct${ab}"></div></div>
 `);
-}
-
-for (let ad = 1; ad <= 4; ad++) {
-	$('.letters-bg').append(`
-	<div class="letter-ct" id="noct${ad}"></div>
-  `);
 }
 
 for (let ac = 1; ac <= full2Ans.length; ac++) {
@@ -164,9 +159,7 @@ if (Inter == 5) {
 });
 
 $('.retry').click(function() {
-$(".ans").empty();
-ans = 0; digit = 1;
-$('.letter-ct').css({visibility: 'visible'});
+
 setTimeout(() => {$(".game-over").css({transform:'scale(1.2)', opacity:'0'});}, 100);
 $('.game-over-con').fadeOut();
 setTimeout(() => {$(".game-over").css({transform:'scale(1)', opacity:'1'});}, 400);
@@ -177,6 +170,9 @@ $('.clear-all').click(function() {
 	$(".ans").empty();
 	ans = 0;
 	digit = 1;
+	totaldigit = 1;
+	typedAns='';
+	typedAnsNumbers=[];
 	$('.letter-ct').css({
 		'visibility': 'visible'
 	});
@@ -285,21 +281,32 @@ for (let ws = 1; ws <= fullAns.length; ws++) {
 
 ansLength = fullAns.length - whiteSpace;
 
-for (let a = 1; a <= full2Ans.length; a++) {
-	window["ct" + a] = full2Ans.charAt(a - 1);
-	window["hintct" + a] = full2Ans.charAt(a - 1);
-	$("#ct" + a).html(window["ct" + a]);
+// for (let a = 1; a <= full2Ans.length; a++) {
+// 	window["ct" + a] = full2Ans.charAt(a - 1);
+// 	window["hintct" + a] = full2Ans.charAt(a - 1);
+// 	$("#ct" + a).html(window["ct" + a]);
 
-	if (a == full2Ans.length) {
+// 	if (a == full2Ans.length) {
+// 		letterClick();
+// 		repeatNumber();
+// 	}
+// }
+console.log(full2Ans)
+for (let a = 0; a < full2Ans.length; a++) {
+	window["ct" + (a+1)] = full2Ans.charAt(a);
+	window["hintct" + (a+1)] = full2Ans.charAt(a);
+	$("#ct" + (a+1)).html(full2Ans[a]);
+
+	if (a == (full2Ans.length - 1)) {
 		letterClick();
 		repeatNumber();
 	}
 }
 
-document.getElementById("noct1").innerHTML = noct1;
-document.getElementById("noct2").innerHTML = noct2;
-document.getElementById("noct3").innerHTML = noct3;
-document.getElementById("noct4").innerHTML = noct4;
+// document.getElementById("noct1").innerHTML = noct1;
+// document.getElementById("noct2").innerHTML = noct2;
+// document.getElementById("noct3").innerHTML = noct3;
+// document.getElementById("noct4").innerHTML = noct4;
 
 $(".main-img").error(function () { 
 $(".img-error").css({display:"flex"});
@@ -320,49 +327,127 @@ $(".img-error-btn2").click(function() {
 setTimeout(() => {location.reload();}, 200);
 });
 
-}
+} //readyFunction closed
 
+typedAns = '';
+typedAnsNumbers = [];
 function letterClick() {
 $(".letter-ct").click(function() {
+previousLetterIndex = null;
 
-ctVar = parseInt($(this).attr('id').replace("ct", "").replace("no", "-"));
-if (ctVar > 0) {
-	tmp2 = window["ct" + ctVar];
-} else {
-	tmp = ctVar * -1;
-	tmp2 = window["noct" + tmp];
+for (i=0; i<typedAns.length; i++) {
+	if (typedAns[i] == '$') {
+		previousLetterIndex = i;
+		break;
+	}
 }
-$("#ans" + digit).html(tmp2);
 
-if (digit == ctVar) {
-	ans ++; digit++;
+	console.log("selectedAns", $(this).text());
+	selectedAns = $(this).text();
+
+if (previousLetterIndex != null) {
+	//previous letter ct should be applied
+	$("#ans" + (previousLetterIndex+1)).html(selectedAns);
+	typedAnsNumbers[previousLetterIndex] = parseInt($(this).attr('id').replace('ct', ''));
+	typedAns = replaceAt(typedAns, previousLetterIndex, selectedAns);
+} else {
+	// new letter ct should be applied 
+	$("#ans" + digit).html(selectedAns);
+	digit++;
+	typedAnsNumbers.push(parseInt($(this).attr('id').replace('ct', '')));
+	typedAns+=selectedAns;
+}
+	console.log("typedAnsNumbers", typedAnsNumbers);
+	totaldigit++;
+	console.log("typedAns", typedAns);
+
+if (digit == (full2Ans.length + 1)) {
 	finalCheck();
-} else {digit++; finalCheck(); }
+}
+
+// if (ctVar > 0) {
+// 	tmp2 = window["ct" + ctVar];
+// } else {
+// 	tmp = ctVar * -1;
+// 	tmp2 = window["noct" + tmp];
+// }
+// $("#ans" + digit).html(tmp2);
+
+// if (digit == ctVar) {
+// 	ans ++; digit++;
+// 	finalCheck();
+// } else {digit++; finalCheck(); }
 
 $(this).css({visibility:'hidden'});
 
 });
+
+function replaceAt(str,index,chr) {
+    tmpList = [];
+	for (i=0; i<str.length; i++) {
+		console.log("iiiii",i)
+		tmpList.push(str[i]);
+	}
+	tmpList[index] = chr;
+	console.log("returned string", tmpList.toString().replace(new RegExp(",", "g"), ''))
+	return tmpList.join().replace(new RegExp(",", "g"), '');
+}
+
+$(".ans-ct").click(function() {
+	ctVar = parseInt($(this).attr('id').replace("ans-ct", ""));
+	if (ctVar < digit) {
+		//proceed to remove letter
+		totaldigit--;
+		$("#ans"+ctVar).empty();
+		$("#ct"+typedAnsNumbers[ctVar-1]).css({visibility:'visible'});
+		typedAnsNumbers[ctVar-1] = 0;
+		console.log("typedAnsNumbers", typedAnsNumbers)
+		typedAns = replaceAt(typedAns, (ctVar-1), '$');
+		console.log("typedAns",typedAns);
+	}
+	console.log(ctVar)
+	console.log($(this).text())
+});
+
 }
 
 
 function finalCheck() {
 setTimeout(() => {
-if (digit == full2Ans.length + 1) {
-	if (ans == full2Ans.length) {
+if (totaldigit == full2Ans.length + 1) {
+	// if (ans == full2Ans.length) {
+	// 	hint = 0; localStorage.setItem("hint", hint);
+	// 	Levelfunct();
+	// 	$('.finish-con').css({display:'flex'});
+	// 	document.getElementById("finish").play();
+	// 	coins ++; localStorage.setItem("coins", coins);
+	// 	$("#coins").html(coins);
+	// } else {
+	// 	$('.game-over-con').css({display:'flex'});
+	// 	document.getElementById("over").play();
+	// 	if (coins > 0) {
+	// 		coins --; localStorage.setItem("coins", coins);
+	// 		$("#coins").html(coins);
+	// 	}
+	// }
+	console.log("over")
+	if (typedAns == full2Ans) {
+		console.log('won')
 		hint = 0; localStorage.setItem("hint", hint);
 		Levelfunct();
 		$('.finish-con').css({display:'flex'});
 		document.getElementById("finish").play();
-		coins ++; localStorage.setItem("coins", coins);
-		$("#coins").html(coins);
+		coins ++;
 	} else {
+		console.log('fail')
 		$('.game-over-con').css({display:'flex'});
 		document.getElementById("over").play();
 		if (coins > 0) {
-			coins --; localStorage.setItem("coins", coins);
-			$("#coins").html(coins);
+			coins --;
 		}
 	}
+	localStorage.coins = coins;
+	$("#coins").html(coins);
 }
 }, 200);
 }
