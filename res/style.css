@@ -65,8 +65,6 @@ break {
 
 .levels {
 	font-size: x-large;
-	display: flex;
-	align-items: center;
 	margin-left: 23px;
 }
 
@@ -137,7 +135,7 @@ break {
 	background: rgb(111, 134, 245);
 	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 	box-shadow: 0px 0px 7px #0000004d;
-	border-radius: 4vw;
+	border-radius: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -157,7 +155,7 @@ break {
 	max-width: 85vw;
 	max-height: 30vh;
 	margin: 0 auto;
-	border-radius: 4vw;
+	border-radius: 20px;
 
 }
 
@@ -203,7 +201,7 @@ break {
 	width: 20px;
 	height: 20px;
 	padding: 20px 20px;
-	font-size: large;
+	font-size: x-large;
 	text-align: center;
 	border-radius: 10px;
 	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
@@ -222,7 +220,7 @@ break {
 	max-height: 35px;
 	padding: 0vw 0vw;
 	margin: 1vw .3vw;
-	font-size: medium;
+	font-size: larger;
 	border-radius: 10px;
 	background-color: white;
 	color: #062737;
