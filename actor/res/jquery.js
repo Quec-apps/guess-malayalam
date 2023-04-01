@@ -242,3 +242,7 @@ $(document).ready(function () {
 	});
 
 });
+
+if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
+	localStorage.Inter=1;
+}
