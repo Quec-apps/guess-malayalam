@@ -379,19 +379,7 @@ function letterClick() {
 		if (digit == (full2Ans.length + 1)) {
 			finalCheck();
 		}
-
-		// if (ctVar > 0) {
-		// 	tmp2 = window["ct" + ctVar];
-		// } else {
-		// 	tmp = ctVar * -1;
-		// 	tmp2 = window["noct" + tmp];
-		// }
-		// $("#ans" + digit).html(tmp2);
-
-		// if (digit == ctVar) {
-		// 	ans ++; digit++;
-		// 	finalCheck();
-		// } else {digit++; finalCheck(); }
+		
 	});
 
 	function replaceAt(str, index, chr) {
@@ -423,28 +411,12 @@ function letterClick() {
 
 }
 
-
 function finalCheck() {
 	var fullAns = window['q' + levels];
 	var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
 
 	setTimeout(() => {
 		if (totaldigit == full2Ans.length + 1) {
-			// if (ans == full2Ans.length) {
-			// 	hint = 0; localStorage.setItem("hint", hint);
-			// 	Levelfunct();
-			// 	$('.finish-con').css({display:'flex'});
-			// 	document.getElementById("finish").play();
-			// 	coins ++; localStorage.setItem("coins", coins);
-			// 	$("#coins").html(coins);
-			// } else {
-			// 	$('.game-over-con').css({display:'flex'});
-			// 	document.getElementById("over").play();
-			// 	if (coins > 0) {
-			// 		coins --; localStorage.setItem("coins", coins);
-			// 		$("#coins").html(coins);
-			// 	}
-			// }
 			console.log("over")
 			if (typedAns == full2Ans) {
 				console.log('won')
@@ -465,4 +437,8 @@ function finalCheck() {
 			$("#coins").html(coins);
 		}
 	}, 200);
+}
+
+if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
+	localStorage.Inter=1;
 }
