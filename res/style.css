@@ -198,6 +198,7 @@ break {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	text-transform: uppercase;
 	width: 20px;
 	height: 20px;
 	padding: 20px 20px;
@@ -214,6 +215,7 @@ break {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	text-transform: uppercase;
 	width: 7vw;
 	max-width: 35px;
 	height: 7vw;
