@@ -242,7 +242,7 @@ $(document).ready(function () {
 
 function AppenAll() {
 	var fullAns = window['q' + levels];
-	var full2Ans = fullAns.replace(/ /g, "");
+	var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
 	console.log(full2Ans);
 	var whiteSpace = 0;
 	$("#ans-txt").html(fullAns);
@@ -374,7 +374,7 @@ function letterClick() {
 		console.log("typedAns", typedAns);
 
 		var fullAns = window['q' + levels];
-		var full2Ans = fullAns.replace(/ /g, "");
+		var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
 
 		if (digit == (full2Ans.length + 1)) {
 			finalCheck();
@@ -426,7 +426,7 @@ function letterClick() {
 
 function finalCheck() {
 	var fullAns = window['q' + levels];
-	var full2Ans = fullAns.replace(/ /g, "");
+	var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
 
 	setTimeout(() => {
 		if (totaldigit == full2Ans.length + 1) {
