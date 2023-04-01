@@ -100,6 +100,7 @@
 			transition: none;
 			opacity: .6 !important;
 		}
+
 		.ct-main-img {
 			width: 60px;
 			height: 60px;
@@ -107,6 +108,7 @@
 			top: 20%;
 			left: 10%;
 		}
+
 		.ct-img {
 			width: 30vw;
 			height: 30vw;
@@ -161,6 +163,7 @@
 			font-size: x-large;
 			transform: translateX(1.8vw);
 		}
+
 		.special-bg {
 			width: 10vh;
 			height: 10vh;
@@ -171,10 +174,12 @@
 			flex-wrap: wrap;
 			justify-content: center;
 		}
+
 		.special-img {
 			width: 10vh;
 			height: 10vh;
 		}
+
 		.back-img {
 			position: absolute;
 			top: 1vw;
@@ -230,6 +235,7 @@
 				font-family: special;
 				src: url(special/Indu_No1.ttf);
 			}
+
 			.special-txt {
 				font-family: special;
 				font-size: smaller;
@@ -254,7 +260,8 @@
 			<style>
 				.new-badge {
 					position: absolute;
-					top: 0px; left: -30px;
+					top: 0px;
+					left: -30px;
 					width: 120px;
 					height: 30px;
 					transform: rotate(-25deg);
@@ -280,11 +287,11 @@
 		<div class="ad-class">
 			<script type="text/javascript">
 				atOptions = {
-					'key' : '2ef1d5ddb664b82721afe90593bfffd0',
-					'format' : 'iframe',
-					'height' : 50,
-					'width' : 320,
-					'params' : {}
+					'key': '2ef1d5ddb664b82721afe90593bfffd0',
+					'format': 'iframe',
+					'height': 50,
+					'width': 320,
+					'params': {}
 				};
 				document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/2ef1d5ddb664b82721afe90593bfffd0/invoke.js"></scr' + 'ipt>');
 			</script>
@@ -312,7 +319,7 @@
 				border-radius: 10px;
 				text-align: center;
 				padding: 2vh 0;
-				color:white;
+				color: white;
 				transition: all 350ms ease;
 				animation: feedback 1s ease-in 1;
 				font-weight: 500;
@@ -328,6 +335,7 @@
 
 	</div><!--ct-bg closed-->
 	<audio id="button2" src="res/button2.mp3"></audio>
+	<script src="movie/movie.js"></script>
 	<script>
 		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
@@ -336,18 +344,7 @@
 		setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 400);
 		setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 500);
 
-		var levels_total = parseInt(localStorage.getItem('levels_total'));
-
-		if (localStorage.getItem("old_levels_total") == null) {
-			localStorage.setItem("old_levels_total", levels_total)
-		} else {
-			if (levels_total > localStorage.getItem("old_levels_total")) {
-				newLevel = levels_total - localStorage.getItem("old_levels_total");
-				$("#newLevel").html(newLevel);
-				localStorage.setItem("old_levels_total", levels_total);
-				$(".newAdded").fadeIn(0);
-			}
-		}
+		var levels_total = levelTotal;
 
 		if (localStorage.actorLevel == null) {
 			actorLevel = 1;
@@ -420,20 +417,10 @@
 			document.getElementById("levels").innerHTML = "1";
 			parseInt(localStorage.setItem("levels", levels));
 		} else { document.getElementById("levels").innerHTML = levels; }
+
 		$('.ct1').click(function () {
-			localStorage.setItem("mode", "movie");
-			if (levels <= levels_total) {
-				setTimeout(function () {
-					if (levels <= 9) {
-						parent.location = 'movie/html/00' + levels + '.html';
-					}
-					if (levels >= 10) {
-						parent.location = 'movie/html/0' + levels + '.html';
-					}
-					if (levels >= 100) {
-						parent.location = 'movie/html/' + levels + '.html';
-					}
-				}, 700);
+			if (levels <= levelTotal) {
+				parent.location = 'movie/movie.html';
 			} else {
 				setTimeout(function () {
 					parent.location = 'wait_update.html';
@@ -442,7 +429,7 @@
 		});
 		console.log(actorLevel);
 		console.log(actorLevels_total);
-		$(".ct2").click(function() {
+		$(".ct2").click(function () {
 			if (actorLevel <= actorLevels_total) {
 				setTimeout(function () {
 					parent.location = 'actor/html/actor_content.html';
