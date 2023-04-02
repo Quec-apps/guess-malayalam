@@ -243,6 +243,17 @@ $(document).ready(function () {
 
 });
 
+smallImage = true;
+$(".main-img").click(function () {
+	if (smallImage) {
+		smallImage = false;
+		$('.main-img').css({ maxWidth: '100vw', maxHeight: '50vh' });
+	} else {
+		smallImage=true;
+		$(".main-img").css({maxWidth: '85vw', maxHeight: '30vh' });
+	}
+});
+
 if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
 	localStorage.Inter=1;
 }
