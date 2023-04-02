@@ -18,6 +18,7 @@ function Levelfunct() {
 
 $('.next').click(function () {
 	if (levels <= total) {
+		$(".show-hint").css({ visibility: 'visible' });
 		typedAns = '';
 		typedAnsNumbers = [];
 		$(".letters-bg").empty();
@@ -89,28 +90,6 @@ function LevelNext() {
 	document.getElementById("coins").innerHTML = coins;
 }
 document.getElementById("coin-txt").innerHTML = "+1";
-
-
-$('.show-hint').click(function () {
-	if (coins < 1) {
-		document.getElementById("button3").play();
-		$('.out-coins-con').css({ display: 'flex' });
-		setTimeout(function () { $('.hint-bg-bg').fadeOut(); }, 100);
-		setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
-	} else {
-		document.getElementById("hint").play();
-		hint++; localStorage.setItem("hint", hint);
-		$("#hintct" + hint).html(window["ct" + hint]);
-		coins--; localStorage.setItem("coins", coins);
-		$("#coins").html(coins);
-
-		fullAns = window['q' + levels];
-		full2Ans = fullAns.replace(/ /g, "");
-		if (hint == full2Ans.length - 1) {
-			$(".show-hint").css({ visibility: 'hidden' });
-		}
-	}
-});
 
 
 $(document).ready(function () {
@@ -237,7 +216,6 @@ $(document).ready(function () {
 	});
 
 	//answers
-
 });
 
 function AppenAll() {
@@ -293,7 +271,7 @@ function AppenAll() {
 	}
 
 
-	var hint = 0;
+	hint = 0;
 	if (localStorage.getItem("hint") == null) {
 		hint = 0; localStorage.setItem("hint", hint);
 	} else {
@@ -442,3 +420,26 @@ function finalCheck() {
 if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
 	localStorage.Inter=1;
 }
+
+$('.show-hint').click(function () {
+	fullAns = window['q' + levels];
+	full2Ans = fullAns.replace(/ /g, "").toUpperCase();
+	
+	if (coins < 1) {
+		document.getElementById("button3").play();
+		$('.out-coins-con').css({ display: 'flex' });
+		setTimeout(function () { $('.hint-bg-bg').fadeOut(); }, 100);
+		setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
+	} else {
+		document.getElementById("hint").play();
+		hint++; localStorage.setItem("hint", hint);
+		$("#hintct" + hint).html(window["ct" + hint]);
+		console.log(window["ct" + hint]);
+		coins--; localStorage.setItem("coins", coins);
+		$("#coins").html(coins);
+
+		if (hint == full2Ans.length - 1) {
+			$(".show-hint").css({ visibility: 'hidden' });
+		}
+	}
+});
