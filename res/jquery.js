@@ -143,6 +143,8 @@ $(document).ready(function () {
 			setTimeout(function () { $('.hint-bg-bg').fadeOut(); }, 100);
 			setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
 		} else {
+			typedAns = '';
+			typedAnsNumbers = [];
 			hint = 0; localStorage.setItem("hint", hint);
 			document.getElementById("win").play();
 			coins--; coins--; coins--; coins--; coins--;
@@ -224,9 +226,9 @@ function AppenAll() {
 	console.log(full2Ans);
 	var whiteSpace = 0;
 	$("#ans-txt").html(fullAns);
-	$("#main-levels").text(' '+levels);
+	$("#main-levels").text(' ' + levels);
 
-	$(".main-img").attr('src', 'images/'+levels+'.webp');
+	$(".main-img").attr('src', 'images/' + levels + '.webp');
 
 	for (let aa = 1; aa <= full2Ans.length; aa++) {
 		$('.main-answer-bg').append(`
@@ -357,7 +359,7 @@ function letterClick() {
 		if (digit == (full2Ans.length + 1)) {
 			finalCheck();
 		}
-		
+
 	});
 
 	function replaceAt(str, index, chr) {
@@ -418,13 +420,13 @@ function finalCheck() {
 }
 
 if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
-	localStorage.Inter=1;
+	localStorage.Inter = 1;
 }
 
 $('.show-hint').click(function () {
 	fullAns = window['q' + levels];
 	full2Ans = fullAns.replace(/ /g, "").toUpperCase();
-	
+
 	if (coins < 1) {
 		document.getElementById("button3").play();
 		$('.out-coins-con').css({ display: 'flex' });
@@ -441,5 +443,16 @@ $('.show-hint').click(function () {
 		if (hint == full2Ans.length - 1) {
 			$(".show-hint").css({ visibility: 'hidden' });
 		}
+	}
+});
+
+smallImage = true;
+$(".main-img").click(function () {
+	if (smallImage) {
+		smallImage = false;
+		$('.main-img').css({ maxWidth: '100vw', maxHeight: '50vh' });
+	} else {
+		smallImage=true;
+		$(".main-img").css({maxWidth: '85vw', maxHeight: '30vh' });
 	}
 });
