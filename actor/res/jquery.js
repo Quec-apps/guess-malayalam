@@ -90,7 +90,7 @@ $(document).ready(function () {
 
 	var Inter = localStorage.getItem('Inter');
 	$('.back-img, .home, .retry, .next').click(function () {
-		if (Inter == 4) {
+		if (Inter > 4) {
 			Inter = 0;
 			localStorage.setItem('Inter', 0);
 			parent.location = 'https://inter';
