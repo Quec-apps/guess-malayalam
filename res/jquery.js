@@ -119,9 +119,9 @@ $(document).ready(function () {
 	calcHeight = vhHeight - fullHeight;
 	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
-	var Inter = localStorage.getItem('Inter');
+	Inter = localStorage.getItem('Inter');
 	$('.back-img, .home, .retry, .next').click(function () {
-		if (Inter == 5) {
+		if (Inter > 4) {
 			Inter = 0;
 			localStorage.setItem('Inter', 0);
 			parent.location = 'https://inter';
