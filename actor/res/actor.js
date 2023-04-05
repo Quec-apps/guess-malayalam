@@ -2350,3 +2350,5 @@ window["noans1"+a] = "Kiran Raj";
 window["noans2"+a] = "Kottayam Purushan";
 window["noans3"+a] = "Vinay Forrt";
 window["noans4"+a] = "Prem Prakash";
+
+actorLevelTotal = a;
