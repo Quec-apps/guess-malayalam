@@ -3,10 +3,6 @@
 <head>
 	<script src="res/jquery.min.js"></script>
 	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
-	<script>
-		localStorage.levels_total = 197;
-		localStorage.actorLevels_total = 336;
-	</script>
 	<style>
 		@font-face {
 			font-family: "Rubik";
@@ -260,11 +256,11 @@
 			<style>
 				.new-badge {
 					position: absolute;
-					top: 0px;
-					left: -30px;
-					width: 120px;
+					top: 14px;
+					left: 78%;
+					width: 29%;
 					height: 30px;
-					transform: rotate(-25deg);
+					transform: rotate(45deg);
 					background-color: aqua;
 					display: flex;
 					justify-content: center;
@@ -279,9 +275,10 @@
 		</div>
 
 		<div class="ct ct3">
+			<div class="new-badge">NEW</div>
 			<img src="res/song.png" class="ct-main-img">
 			<div class="ct-txt">Songs</div>
-			<div class="score">Coming soon...</div>
+			<div class="score"><span id="song-level">0</span></div>
 		</div>
 
 		<div class="ad-class">
@@ -336,6 +333,8 @@
 	</div><!--ct-bg closed-->
 	<audio id="button2" src="res/button2.mp3"></audio>
 	<script src="movie/movie.js"></script>
+	<script src="actor/res/actor.js"></script>
+	<script src="song/res/song.js"></script>
 	<script>
 		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
@@ -344,17 +343,21 @@
 		setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 400);
 		setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 500);
 
-		var levels_total = levelTotal;
-
 		if (localStorage.actorLevel == null) {
 			actorLevel = 1;
 			localStorage.actorLevel = actorLevel;
 		}
 		actorLevel = parseInt(localStorage.actorLevel);
-		actorLevels_total = localStorage.actorLevels_total;
 		console.log(actorLevel)
 		$("#actor-level").html(actorLevel);
-		console.log(actorLevel)
+
+		if (localStorage.songLevel == null) {
+			songLevel = 1;
+			localStorage.songLevel = songLevel;
+		}
+		songLevel = parseInt(localStorage.songLevel);
+		console.log(songLevel)
+		$("#song-level").html(songLevel);
 
 		adVar = Math.floor(Math.random() * 4 + 1);
 		$(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
@@ -400,7 +403,7 @@
 			document.getElementById("coins").innerHTML = coins;
 		}
 
-		$('.ct1, .ct2').click(function () {
+		$('.ct').click(function () {
 			document.getElementById("button2").play();
 			FullHide();
 		});
@@ -428,11 +431,24 @@
 			}
 		});
 		console.log(actorLevel);
-		console.log(actorLevels_total);
+		console.log(actorLevelTotal);
 		$(".ct2").click(function () {
-			if (actorLevel <= actorLevels_total) {
+			if (actorLevel <= actorLevelTotal) {
 				setTimeout(function () {
 					parent.location = 'actor/html/actor_content.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+		$(".ct3").click(function () {
+			console.log('songLevel', songLevel)
+			console.log('songLevels_total', songLevelTotal)
+			if (songLevel <= songLevelTotal) {
+				setTimeout(function () {
+					parent.location = 'song/song_content.html';
 				}, 700);
 			} else {
 				setTimeout(function () {
@@ -454,7 +470,7 @@
 		});
 
 		if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
-			localStorage.Inter=1;
+			localStorage.Inter = 1;
 		}
 	</script>
 </body>
