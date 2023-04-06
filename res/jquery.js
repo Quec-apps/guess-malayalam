@@ -91,6 +91,10 @@ function LevelNext() {
 }
 document.getElementById("coin-txt").innerHTML = "+1";
 
+$(".main-img").on("load", function () {
+	$(".loading-txt").fadeOut();
+	$(".main-img").fadeIn();
+});
 
 $(document).ready(function () {
 	vhHeight = $(window).outerHeight();
@@ -111,7 +115,6 @@ $(document).ready(function () {
 	});
 
 	$('.retry').click(function () {
-
 		setTimeout(() => { $(".game-over").css({ transform: 'scale(1.2)', opacity: '0' }); }, 100);
 		$('.game-over-con').fadeOut();
 		setTimeout(() => { $(".game-over").css({ transform: 'scale(1)', opacity: '1' }); }, 400);
@@ -227,6 +230,9 @@ function AppenAll() {
 	var whiteSpace = 0;
 	$("#ans-txt").html(fullAns);
 	$("#main-levels").text(' ' + levels);
+
+	$(".main-img").fadeOut();
+	$(".loading-txt").fadeIn();
 
 	$(".main-img").attr('src', 'images/' + levels + '.webp');
 
@@ -452,7 +458,7 @@ $(".main-img").click(function () {
 		smallImage = false;
 		$('.main-img').css({ maxWidth: '100vw', maxHeight: '50vh' });
 	} else {
-		smallImage=true;
-		$(".main-img").css({maxWidth: '85vw', maxHeight: '30vh' });
+		smallImage = true;
+		$(".main-img").css({ maxWidth: '85vw', maxHeight: '30vh' });
 	}
 });
