@@ -153,6 +153,9 @@ break {
 	margin: 0 auto;
 	border-radius: 20px;
 }
+.play-aud {
+	visibility: hidden;
+}
 .sound-img {
 	width: 60px;
 	height: 60px;
