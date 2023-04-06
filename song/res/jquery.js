@@ -51,6 +51,9 @@ $(document).ready(function () {
 	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
 	function Append() {
+		$('.play-aud').css({ visibility: 'hidden' });
+		$('.loading-bg').css({display:'flex'});
+
 		interact = true;
 		$("#main-levels").text(levels);
 		$("#ans").text(window[`q${levels}`]);
@@ -78,18 +81,33 @@ $(document).ready(function () {
 			$('.yt-bg').click(function () {
 				console.log("yt-bg")
 				setTimeout(() => {
-					console.log('levels',levels)
-					console.log('parent.location', window['li' + (levels-1)])
-					window.location = window['li' + (levels-1)];
+					console.log('levels', levels)
+					console.log('parent.location', window['li' + (levels - 1)])
+					window.location = window['li' + (levels - 1)];
 				}, 600);
 			});
 		}
 	}
 	Append();
 
-	$(".sound-img").click(function() {
+	$(".sound-img").click(function () {
 		document.getElementById("main-aud").play();
 	});
+
+	$("#main-aud").on("ended", function () {
+		//song play ended
+		$('.playing-bg').fadeOut();
+		$('.play-aud').css({ visibility: 'visible' });
+	});
+
+	document.getElementById("main-aud").onplaying = function () {
+		//starts playing the song
+		setTimeout(() => {
+			$('.play-aud').css({ visibility: 'hidden' });
+			$('.playing-bg').css({ display: 'flex' });
+		}, 400);
+
+	};
 
 	$('.next').click(function () {
 		//the 'levels' variable have new unlocked level value while 'next' button is clicked
@@ -246,7 +264,7 @@ $(document).ready(function () {
 	$(".main-img").error(function () {
 		$(".img-error").css({ display: "flex" });
 		$(".main-img").css({ visibility: 'hidden' });
-		$('.play-aud').css({visibility:'hidden'});
+		$('.play-aud').css({ visibility: 'hidden' });
 	});
 
 	$(".back-img, .coins-img, .clear-all, .hint, .button").error(function () {
@@ -256,7 +274,7 @@ $(document).ready(function () {
 
 	$(".img-error-btn").click(function () {
 		$(".img-error").fadeOut(0);
-		$('.play-aud').css({visibility:'visible'});
+		$('.play-aud').css({ visibility: 'visible' });
 		$(".main-img").attr("src", "audio/" + levels + ".mp3");
 		$(".main-img").css({ visibility: 'visible' });
 	});
@@ -266,14 +284,14 @@ $(document).ready(function () {
 
 });
 
-$(".disclaimer-txt").click(function() {
-	$('.front').css({transform:'perspective(1000px) rotateY(180deg)'});
-	$('.back').css({transform:'perspective(1000px) rotateY(0deg)'});
+$(".disclaimer-txt").click(function () {
+	$('.front').css({ transform: 'perspective(1000px) rotateY(180deg)' });
+	$('.back').css({ transform: 'perspective(1000px) rotateY(0deg)' });
 
 });
-$(".back").click(function() {
-	$('.front').css({transform:'perspective(1000px) rotateY(0deg)'});
-	$('.back').css({transform:'perspective(1000px) rotateY(-180deg)'});
+$(".back").click(function () {
+	$('.front').css({ transform: 'perspective(1000px) rotateY(0deg)' });
+	$('.back').css({ transform: 'perspective(1000px) rotateY(-180deg)' });
 
 });
 
