@@ -25,32 +25,48 @@
 			font-weight: 1000;
 			color: #000000;
 			user-select: none;
-			/* supported by Chrome and Opera */
 			-webkit-user-select: none;
-			/* Safari */
 			-khtml-user-select: none;
-			/* Konqueror HTML */
 			-moz-user-select: none;
-			/* Firefox */
 			-ms-user-select: none;
-			/* Internet Explorer/Edge */
+		}
+
+		.coffee-bg {
+			display: flex;
+			align-items: center;
+		}
+		.coffee-txt {
+			background-color: white;
+			box-shadow: 0px 0px 4px #0000004d;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: small;
+			padding: 9px 9px;
+			transform-origin: right;
+			transform: scaleX(0);
+			animation: coffee-txt 2s ease 1;
+		} @keyframes coffee-txt {
+			0% {transform: scaleX(0); opacity: 0;}
+			20% {transform: scaleX(1); opacity: 1;}
+			80% {transform: scaleX(1); opacity: 1;}
+			100% {transform: scaleX(0); opacity: 1;}
 		}
 
 		.coffee-img {
-			width: 12vw;
-			height: 12vw;
-			position: fixed;
-			top: 3vw;
-			left: 86%;
+			width: 45px;
+			height: 45px;
 			z-index: 10;
 			opacity: 0;
-			transition: all .6s ease;
-			display: none;
+			transition: all .2s ease;
+			transform: translateX(-10px);
+			transform-origin: center;
 		}
 
 		.coffee-img:active {
 			transition: none;
-			transform: scale(.9);
+			opacity: .6!important;
 		}
 
 		.bg-img {
@@ -219,29 +235,17 @@
 </head>
 
 <body>
-	<img src="res/coffee.webp" class="coffee-img">
-
 	<div class="mid">
 		<div class="coins">
 			<img src="res/coins.webp" class="coins-img">
 			<div id="coins">0</div>
 		</div>
-		<style>
-			@font-face {
-				font-family: special;
-				src: url(special/Indu_No1.ttf);
-			}
-
-			.special-txt {
-				font-family: special;
-				font-size: smaller;
-				font-weight: 800;
-			}
-		</style>
-		<div class="special-bg">
-			<img src="special/inct.png" class="special-img">
-			<div class="special-txt">ആദരാഞ്ജലികൾ</div>
+		<div class="coffee-bg">
+			<div class="coffee-txt">Support me!</div>
+			<img src="res/coffee.webp" class="coffee-img">
 		</div>
+		<!-- <div class="special-bg">
+		</div> -->
 	</div>
 
 	<div class="ct-bg">
@@ -432,6 +436,7 @@
 		});
 		console.log(actorLevel);
 		console.log(actorLevelTotal);
+
 		$(".ct2").click(function () {
 			if (actorLevel <= actorLevelTotal) {
 				setTimeout(function () {
@@ -455,6 +460,12 @@
 					parent.location = 'wait_update.html';
 				}, 600);
 			}
+		});
+
+		$('.coffee-img').click(function() {
+			setTimeout(() => {
+				parent.location='https://www.buymeacoffee.com/shameelAbid';
+			}, 400);
 		});
 
 		$(".rate-bg").click(function () {
