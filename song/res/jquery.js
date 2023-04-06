@@ -52,6 +52,7 @@ $(document).ready(function () {
 
 	function Append() {
 		$('.play-aud').css({ visibility: 'hidden' });
+		$('.playing-bg').fadeOut();
 		$('.loading-bg').css({display:'flex'});
 
 		interact = true;
