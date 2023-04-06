@@ -42,7 +42,12 @@ function LevelNext() {
 	localStorage.setItem("coins", coins);
 	document.getElementById("coins").innerHTML = coins;
 }
-document.getElementById("coin-txt").innerHTML = "+1";
+$('#coin-txt').text("+1");
+
+$(".main-img").on("load", function () {
+	$(".loading-txt").fadeOut();
+	$(".main-img").fadeIn();
+});
 
 $(document).ready(function () {
 	vhHeight = $(window).outerHeight();
@@ -51,6 +56,9 @@ $(document).ready(function () {
 	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
 	function Append() {
+		$(".main-img").fadeOut();
+		$(".loading-txt").fadeIn();
+
 		interact = true;
 		$("#main-levels").text(levels);
 		$("#ans").text(window[`ans${levels}`]);
@@ -249,11 +257,11 @@ $(".main-img").click(function () {
 		smallImage = false;
 		$('.main-img').css({ maxWidth: '100vw', maxHeight: '50vh' });
 	} else {
-		smallImage=true;
-		$(".main-img").css({maxWidth: '85vw', maxHeight: '30vh' });
+		smallImage = true;
+		$(".main-img").css({ maxWidth: '85vw', maxHeight: '30vh' });
 	}
 });
 
 if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
-	localStorage.Inter=1;
+	localStorage.Inter = 1;
 }
