@@ -64,16 +64,15 @@ break {
 }
 
 .levels {
-	font-size: x-large;
-	margin-left: 23px;
+    font-size: x-large;
+    margin-left: 23px;
+    display: flex;
+    align-items: center;
 }
 
 .back-img {
 	width: 50px;
 	height: 50px;
-	position: fixed;
-	top: 1.5vh;
-	left: 2vw;
 	transform: scale(1.2);
 	opacity: 0;
 } .back-img:active {
@@ -249,6 +248,12 @@ break {
 	box-shadow:  0 0 5px rgba(0, 0, 0, 0.241);
 	transition: all .4s ease;
 	animation: intro .4s ease-in 1;
+}
+.empty-ct {
+	width: 7vw;
+	max-width: 35px;
+	height: 7vw;
+	max-height: 35px;
 }
 
 .main-img-bg {

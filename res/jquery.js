@@ -254,11 +254,49 @@ function AppenAll() {
 		}
 	}
 
-	for (let ws = 1; ws <= fullAns.length; ws++) {
-		if (fullAns.charAt(ws - 1) == " ") {
-			whiteSpace++;
-			$("<break></break>").insertAfter(".answer-ct" + [ws - whiteSpace]);
+	splittedAns = fullAns.split(' ');
+	console.log(splittedAns);
+	whiteSpace = splittedAns.length - 1;
+	console.log(whiteSpace);
+	older = NaN;
+	breakNum = [];
+	for (i in fullAns) {
+		if (fullAns[i] == ' ') {
+			breakNum.push(parseInt(i)+1);
 		}
+	}
+	console.log(breakNum);
+
+	count=0;
+	singleLine=0;
+	for (ws in splittedAns) {
+		ws = parseInt(ws);
+		count+=splittedAns[ws].length;
+		singleLine+=splittedAns[ws].length;
+		console.log('ws',ws,'splittedAnsLen',(splittedAns.length-1));
+		if (splittedAns[ws].length < 7 && singleLine < 8) {
+			console.log(splittedAns[ws+1])
+			if (parseInt(ws) == (splittedAns.length - 1)) {
+				$("<div class='empty-ct'></div>").insertAfter(".answer-ct" + count);
+			} else if (splittedAns[(ws+1)].length < 7) {
+				$("<div class='empty-ct'></div>").insertAfter(".answer-ct" + count);
+			} else {
+				singleLine=0;
+				$("<break></break>").insertAfter(".answer-ct" + count);
+			}
+		} else {
+			singleLine=0;
+			$("<break></break>").insertAfter(".answer-ct" + count);
+		}
+
+		// console.log(splittedAns[ws]);
+		console.log(ws);
+		// console.log(breakNum[count]);
+
+		// if (fullAns.charAt(ws - 1) == " ") {
+		// 	whiteSpace++;
+		// 	$("<break></break>").insertAfter(".answer-ct" + [ws - whiteSpace]);
+		// }
 	}
 
 	ansLength = fullAns.length - whiteSpace;
