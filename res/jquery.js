@@ -382,7 +382,7 @@ function letterClick() {
 
 	$(".ans-ct").click(function () {
 		ctVar = parseInt($(this).attr('id').replace("ans-ct", ""));
-		if (ctVar < digit) {
+		if (ctVar < digit && !$('#ans'+ctVar).is(':empty')) {
 			//proceed to remove letter
 			totaldigit--;
 			$("#ans" + ctVar).empty();
@@ -392,8 +392,6 @@ function letterClick() {
 			typedAns = replaceAt(typedAns, (ctVar - 1), '$');
 			console.log("typedAns", typedAns);
 		}
-		console.log(ctVar)
-		console.log($(this).text())
 	});
 
 }
