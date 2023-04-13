@@ -86,10 +86,10 @@ MainShuffle();
 
 function LevelNext() {
 	coins++;
-	localStorage.setItem("coins", coins);
-	document.getElementById("coins").innerHTML = coins;
+	localStorage.coins = coins;
+	$("#coins").text(coins);
 }
-document.getElementById("coin-txt").innerHTML = "+1";
+$("#coin-txt").text('+1');
 
 $(".main-img").on("load", function () {
 	$(".loading-txt").fadeOut();
@@ -97,10 +97,6 @@ $(".main-img").on("load", function () {
 });
 
 $(document).ready(function () {
-	vhHeight = $(window).outerHeight();
-	fullHeight = $(".full").outerHeight();
-	calcHeight = vhHeight - fullHeight;
-	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
 	Inter = localStorage.getItem('Inter');
 	$('.back-img, .home, .retry, .next').click(function () {
@@ -297,6 +293,11 @@ function AppenAll() {
 	}
 
 	MainShuffle();
+
+	vhHeight = $(window).outerHeight();
+	fullHeight = $(".full").outerHeight();
+	calcHeight = vhHeight - fullHeight;
+	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
 }
 AppenAll();
