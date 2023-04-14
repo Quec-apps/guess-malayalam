@@ -1,5 +1,6 @@
 b = 0;
 
+b++;
 window["q"+b] = "Mehabooba"; //Ans1
 window["q1"+b] = "Neelambalin";
 window["q2"+b] = "ENTE MAVUM POOTHE";
