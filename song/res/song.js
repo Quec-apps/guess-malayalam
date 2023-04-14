@@ -99,7 +99,7 @@ b++;
 window["q"+b] = "Aluva Puzha"; //Ans13
 window["q1"+b] = "Aadyam Thammil";
 window["q2"+b] = "En Karalil";
-window["q3"+b] = "// Thinkale Poothinkale";
+window["q3"+b] = "Thinkale Poothinkale";
 window["q4"+b] = "Kalakkatha";
 window["li"+b] = 'https://youtu.be/fiAlruU48HI';
 
@@ -107,7 +107,7 @@ b++;
 window["q"+b] = "Ethu Kari Raavilum"; //Ans14
 window["q1"+b] = "Sneham Cherum Neram";
 window["q2"+b] = "Onakka Munthiri";
-window["q3"+b] = "// Thinkale Poothinkale";
+window["q3"+b] = "Thinkale Poothinkale";
 window["q4"+b] = "Mazhanila";
 window["li"+b] = 'https://youtu.be/dz3ik3XzR54';
 
@@ -146,7 +146,7 @@ window["li"+b] = 'https://youtu.be/bRYaCXVW7Hg';
 b++;
 window["q"+b] = "Uyiril Thodum"; //Ans19
 window["q1"+b] = "Onakka Munthiri";
-window["q2"+b] = "// Thinkale Poothinkale";
+window["q2"+b] = "Thinkale Poothinkale";
 window["q3"+b] = "Ee Angaadi Kavalayil";
 window["q4"+b] = "Pularan Neram";
 window["li"+b] = 'https://youtu.be/ZKhOs_Pc_7s';
@@ -204,7 +204,7 @@ window["q"+b] = "Thudakam Mangalyam"; //Ans26
 window["q1"+b] = "Karthaave";
 window["q2"+b] = "Manassilayiram";
 window["q3"+b] = "Aluva Puzha";
-window["q4"+b] = "// Thinkale Poothinkale";
+window["q4"+b] = "Thinkale Poothinkale";
 window["li"+b] = 'https://youtu.be/a3UNpjnYquI';
 
 b++;
@@ -233,8 +233,8 @@ window["li"+b] = 'https://youtu.be/UzqZbwljXzs';
 
 b++;
 window["q"+b] = "Kalippu"; //Ans30
-window["q1"+b] = "// Thinkale Poothinkale";
-window["q2"+b] = "// Thinkale Poothinkale";
+window["q1"+b] = "Thinkale Poothinkale";
+window["q2"+b] = "Thinkale Poothinkale";
 window["q3"+b] = "Raave";
 window["q4"+b] = "JILLAM JILLALA";
 window["li"+b] = 'https://youtu.be/PeUjir1kMFM';
@@ -450,7 +450,7 @@ window["li"+b] = 'https://youtu.be/81jbVOvOUTE';
 b++;
 window["q"+b] = "Nethavu"; //Ans57
 window["q1"+b] = "Rathipushpam";
-window["q2"+b] = "// Thinkale Poothinkale";
+window["q2"+b] = "Thinkale Poothinkale";
 window["q3"+b] = "Enthaavo";
 window["q4"+b] = "Uyiril Thodum";
 window["li"+b] = 'https://youtu.be/-kCb1uTgp2I';
@@ -572,7 +572,7 @@ window["q"+b] = "Mizhikalkkinnenthu Velicham"; //Ans72
 window["q1"+b] = "Pularan Neram";
 window["q2"+b] = "Sneham Cherum Neram";
 window["q3"+b] = "Innale Ente Nenjile";
-window["q4"+b] = "// Thinkale Poothinkale";
+window["q4"+b] = "Thinkale Poothinkale";
 window["li"+b] = 'https://youtu.be/-VGskviJ2rE';
 
 b++;
@@ -625,7 +625,7 @@ window["li"+b] = 'https://youtu.be/cK63XuJMPvo';
 
 b++;
 window["q"+b] = "Olu"; //Ans79
-window["q1"+b] = "// Thinkale Poothinkale";
+window["q1"+b] = "Thinkale Poothinkale";
 window["q2"+b] = "Thoominnal";
 window["q3"+b] = "Ethu Kari Raavilum";
 window["q4"+b] = "Aluva Puzha";
@@ -769,14 +769,14 @@ window["li"+b] = 'https://youtu.be/_-mfjYPGi2Q';
 
 b++;
 window["q"+b] = "Karthaave"; //Ans97
-window["q1"+b] = "// Thinkale Poothinkale";
+window["q1"+b] = "Thinkale Poothinkale";
 window["q2"+b] = "Njan Kanavil";
 window["q3"+b] = "Nenjodu Cherthu";
 window["q4"+b] = "Aarum Kaanaathe";
 window["li"+b] = 'https://youtu.be/ub75hOkUCTw';
 
 b++;
-window["q"+b] = "// Thinkale Poothinkale"; //Ans98
+window["q"+b] = "Thinkale Poothinkale"; //Ans98
 window["q1"+b] = "Vannille Melle Melle";
 window["q2"+b] = "Rasoolallah";
 window["q3"+b] = "Ee Kaattu";
