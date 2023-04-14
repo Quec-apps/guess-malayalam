@@ -372,19 +372,12 @@ break {
 }
 
 .button {
-	width: 80px;
-	height: 80px;
+	width: 60px;
+	height: 60px;
 	padding: 2vh 3vw;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 15px;
-}
-
-.button_hint {
-	width: 10vh;
-	height: 10vh;
-	padding: 0;
-	margin-top: 0;
 }
 
 .button2 {
@@ -421,7 +414,6 @@ break {
 	transition: all 400ms ease;
 }
 
-.clear-all,
 .hint, .skip-img {
 	width: 14vw;
 	height: 14vw;
@@ -438,66 +430,6 @@ break {
 
 .hint-img {
 	width: 100%;
-}
-
-.hint-bg-bg {
-	width: 100vw;
-	height: 100vh;
-	z-index: 13;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, .2);
-	display: none;
-	transition: all .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.hint-bg-top {
-	width: 100vw;
-	height: 60vh;
-}
-
-.hint-bg {
-	width: 100%;
-	height: 40vh;
-	background-image: linear-gradient(to bottom, #e7e7e7, #ffffff);
-	transition: all 350ms ease;
-	border-radius: 10vw 10vw 0 0;
-	position: relative;
-	animation: hintbg 350ms ease 1;
-}
-
-@keyframes hintbg {
-	0% {
-		transform: translateY(20%);
-		opacity: 0;
-	}
-
-	100% {
-		transform: translateY(0);
-		opacity: 1;
-	}
-}
-
-.hint-top {
-	height: 11vh;
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-}
-
-.hint-bg-close {
-	width: 6vw;
-	padding-top: 2vh;
-	margin: 0 auto;
-}
-
-.button3 {
-	width: 15vw;
-	height: 15vw;
-	margin: 2vh 0vh;
-	display: flex;
-	flex-wrap: nowrap;
 }
 
 .coins-img2 {

@@ -3,6 +3,9 @@ var whiteSpace = 0;
 levels = localStorage.getItem("levels");
 total = parseInt(levelTotal);
 
+typedAns = '';
+typedAnsNumbers = [];
+
 var coins = localStorage.getItem("coins");
 $('#coins').text(coins);
 
@@ -86,7 +89,7 @@ MainShuffle();
 
 function LevelNext() {
 	coins++;
-	localStorage.coins = coins;
+	localStorage.aCoins = coins;
 	$("#coins").text(coins);
 }
 $("#coin-txt").text('+1');
@@ -117,19 +120,6 @@ $(document).ready(function () {
 	});
 
 
-	$('.clear-all').click(function () {
-		$(".ans").empty();
-		ans = 0;
-		digit = 1;
-		totaldigit = 1;
-		typedAns = '';
-		typedAnsNumbers = [];
-		$('.letter-ct').css({
-			'visibility': 'visible'
-		});
-	});
-
-
 	$('.skip').click(function () {
 		setTimeout(() => {
 			$('.hint-bg-bg').fadeOut();
@@ -144,7 +134,7 @@ $(document).ready(function () {
 		} else {
 			typedAns = '';
 			typedAnsNumbers = [];
-			hint = 0; localStorage.setItem("hint", hint);
+			hint = 0; localStorage.setItem("actorHint", hint);
 			document.getElementById("win").play();
 			coins--; coins--; coins--; coins--; coins--;
 			coins--; coins--; coins--; coins--; coins--;
@@ -220,10 +210,9 @@ $(document).ready(function () {
 });
 
 function AppenAll() {
-	var fullAns = window['q' + levels];
-	var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
-	console.log(full2Ans);
-	var whiteSpace = 0;
+	fullAns = window['q' + levels];
+	full2Ans = fullAns.replace(/ /g, "").toUpperCase();
+	whiteSpace = 0;
 	$("#ans-txt").html(fullAns);
 	$("#main-levels").text(' ' + levels);
 
@@ -255,9 +244,7 @@ function AppenAll() {
 	}
 
 	splittedAns = fullAns.split(' ');
-	console.log(splittedAns);
 	whiteSpace = splittedAns.length - 1;
-	console.log(whiteSpace);
 	older = NaN;
 	breakNum = [];
 	for (i in fullAns) {
@@ -265,7 +252,6 @@ function AppenAll() {
 			breakNum.push(parseInt(i)+1);
 		}
 	}
-	console.log(breakNum);
 
 	count=0;
 	singleLine=0;
@@ -273,12 +259,12 @@ function AppenAll() {
 		ws = parseInt(ws);
 		count+=splittedAns[ws].length;
 		singleLine+=splittedAns[ws].length;
-		console.log('ws',ws,'splittedAnsLen',(splittedAns.length-1));
-		if (splittedAns[ws].length < 7 && singleLine < 8) {
-			console.log(splittedAns[ws+1])
+		if (splittedAns[ws].length < 9 && singleLine < 10) {
 			if (parseInt(ws) == (splittedAns.length - 1)) {
+				singleLine++;
 				$("<div class='empty-ct'></div>").insertAfter(".answer-ct" + count);
-			} else if (splittedAns[(ws+1)].length < 7) {
+			} else if (splittedAns[(ws+1)].length < (11 - singleLine)) {
+				singleLine++;
 				$("<div class='empty-ct'></div>").insertAfter(".answer-ct" + count);
 			} else {
 				singleLine=0;
@@ -289,16 +275,7 @@ function AppenAll() {
 			$("<break></break>").insertAfter(".answer-ct" + count);
 		}
 
-		// console.log(splittedAns[ws]);
-		console.log(ws);
-		// console.log(breakNum[count]);
-
-		// if (fullAns.charAt(ws - 1) == " ") {
-		// 	whiteSpace++;
-		// 	$("<break></break>").insertAfter(".answer-ct" + [ws - whiteSpace]);
-		// }
 	}
-
 	ansLength = fullAns.length - whiteSpace;
 
 	for (let a = 0; a < full2Ans.length; a++) {
@@ -308,23 +285,34 @@ function AppenAll() {
 
 		if (a == (full2Ans.length - 1)) {
 			letterClick();
-			// repeatNumber();
 		}
 	}
 
-
-	hint = 0;
-	if (localStorage.getItem("hint") == null) {
-		hint = 0; localStorage.setItem("hint", hint);
+	if (localStorage.getItem("actorHint") == null) {
+		hint = 0; localStorage.setItem("actorHint", hint);
 	} else {
-		hint = localStorage.getItem("hint");
+		hint = parseInt(localStorage.getItem("actorHint"));
 	}
 
-	if (hint > 0) {
-		for (let hi = 0; hi <= hint; hi++) {
-			$("#hintct" + hi).html(full2Ans.charAt(hi - 1));
+	
+	function AppendHint() {
+		if (hint > 0) {
+			for (let hi = 0; hi <= hint; hi++) {
+				$("#ans" + hi).html(full2Ans.charAt(hi - 1));
+				$("#ans-ct"+hi).css({backgroundColor:'green', color:'white'});
+			}
+			for (i=0; i < hint; i++) {
+				typedAns += full2Ans[i];
+				console.log(hint);
+				typedAnsNumbers.push(i+1);
+				$("#ct"+(i+1)).css({visibility:'hidden'});
+			}
 		}
 	}
+	AppendHint();
+
+	digit = hint+1;
+	totaldigit = hint+1;
 
 	if (hint == full2Ans.length - 1) {
 		$(".show-hint").css({ visibility: 'hidden' });
@@ -339,6 +327,36 @@ function AppenAll() {
 
 }
 AppenAll();
+
+$('.clear-all').click(function () {
+	fullAns = window['q' + levels];
+	full2Ans = fullAns.replace(/ /g, "").toUpperCase();
+
+	hint = parseInt(hint);
+	$(".ans").empty();
+	ans = 0;
+	digit = hint+1;
+	totaldigit = hint+1;
+	typedAns = '';
+	typedAnsNumbers = [];
+
+	$('.letter-ct').css({
+		'visibility': 'visible'
+	});
+	//Appending hint
+	if (hint > 0) {
+			for (let hi = 0; hi <= hint; hi++) {
+				$("#ans" + hi).html(full2Ans.charAt(hi - 1));
+				$("#ans-ct"+hi).css({backgroundColor:'green', color:'white'});
+			}
+			for (i=0; i < hint; i++) {
+				typedAns += full2Ans[i];
+				console.log(hint);
+				typedAnsNumbers.push(i+1);
+				$("#ct"+(i+1)).css({visibility:'hidden'});
+			}
+		}
+});
 
 function readyFunction() {
 
@@ -363,11 +381,28 @@ function readyFunction() {
 
 } //readyFunction closed
 
-typedAns = '';
-typedAnsNumbers = [];
+function replaceAt(str, index, chr) {
+	tmpList = [];
+	for (i = 0; i < str.length; i++) {
+		tmpList.push(str[i]);
+	}
+	tmpList[index] = chr;
+	return tmpList.join().replace(new RegExp(",", "g"), '');
+}
+
+
 function letterClick() {
+
 	$(".letter-ct").click(function () {
+		fullAns = window['q' + levels];
+		full2Ans = fullAns.replace(/ /g, "").toUpperCase();
+
 		document.getElementById("button").play();
+		console.log('totaldigit',totaldigit)
+		console.log('full2Ans.length',full2Ans.length)
+		if ((totaldigit-1) >= full2Ans.length) {
+			return
+		}
 
 		$(this).css({ visibility: 'hidden' });
 		previousLetterIndex = null;
@@ -379,8 +414,8 @@ function letterClick() {
 			}
 		}
 
-		console.log("selectedAns", $(this).text());
 		selectedAns = $(this).text();
+		console.log('selectedAns', selectedAns)
 
 		if (previousLetterIndex != null) {
 			//previous letter ct should be applied
@@ -394,9 +429,9 @@ function letterClick() {
 			typedAnsNumbers.push(parseInt($(this).attr('id').replace('ct', '')));
 			typedAns += selectedAns;
 		}
-		console.log("typedAnsNumbers", typedAnsNumbers);
 		totaldigit++;
-		console.log("typedAns", typedAns);
+		console.log('typedAns', typedAns)
+
 
 		var fullAns = window['q' + levels];
 		var full2Ans = fullAns.replace(/ /g, "").toUpperCase();
@@ -404,32 +439,24 @@ function letterClick() {
 		if (digit == (full2Ans.length + 1)) {
 			finalCheck();
 		}
-
+		$('#ans').text(ans);
+		$('#digit').text(digit);
+		$('#totaldigit').text(totaldigit);
 	});
-
-	function replaceAt(str, index, chr) {
-		tmpList = [];
-		for (i = 0; i < str.length; i++) {
-			console.log("iiiii", i)
-			tmpList.push(str[i]);
-		}
-		tmpList[index] = chr;
-		console.log("returned string", tmpList.toString().replace(new RegExp(",", "g"), ''))
-		return tmpList.join().replace(new RegExp(",", "g"), '');
-	}
 
 	$(".ans-ct").click(function () {
 		ctVar = parseInt($(this).attr('id').replace("ans-ct", ""));
-		if (ctVar < digit && !$('#ans'+ctVar).is(':empty')) {
+		if (ctVar < digit && !$('#ans' + ctVar).is(':empty') && ctVar > hint) {
 			//proceed to remove letter
 			totaldigit--;
 			$("#ans" + ctVar).empty();
 			$("#ct" + typedAnsNumbers[ctVar - 1]).css({ visibility: 'visible' });
 			typedAnsNumbers[ctVar - 1] = 0;
-			console.log("typedAnsNumbers", typedAnsNumbers)
 			typedAns = replaceAt(typedAns, (ctVar - 1), '$');
-			console.log("typedAns", typedAns);
 		}
+		$('#ans').text(ans);
+		$('#digit').text(digit);
+		$('#totaldigit').text(totaldigit);
 	});
 
 }
@@ -440,31 +467,24 @@ function finalCheck() {
 
 	setTimeout(() => {
 		if (totaldigit == full2Ans.length + 1) {
-			console.log("over")
 			if (typedAns == full2Ans) {
-				console.log('won')
-				hint = 0; localStorage.setItem("hint", hint);
+				hint = 0; localStorage.setItem("actorHint", hint);
 				Levelfunct();
 				$('.finish-con').css({ display: 'flex' });
 				document.getElementById("finish").play();
 				coins++;
 			} else {
-				console.log('fail')
 				$('.game-over-con').css({ display: 'flex' });
 				document.getElementById("over").play();
-				if (coins > 0) {
-					coins--;
-				}
+				if (coins > 0) {coins--;}
 			}
-			localStorage.coins = coins;
+			localStorage.aCoins = coins;
 			$("#coins").html(coins);
 		}
 	}, 200);
 }
 
-if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
-	localStorage.Inter = 1;
-}
+if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {localStorage.Inter = 1;}
 
 $('.show-hint').click(function () {
 	fullAns = window['q' + levels];
@@ -477,13 +497,41 @@ $('.show-hint').click(function () {
 		setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
 	} else {
 		document.getElementById("hint").play();
-		hint++; localStorage.setItem("hint", hint);
-		$("#hintct" + hint).html(window["ct" + hint]);
-		console.log(window["ct" + hint]);
+		hint++; localStorage.setItem("actorHint", hint);
+		$("#ans-ct" + hint).css({backgroundColor:'green', color:'white'});
+		$("#ct"+hint).css({visibility:'hidden'});
+		//check if showing hint is empty
+		if ($('#ans' + hint).is(':empty')) {
+			//its empty
+			previousLetterIndex = null;
+			for (i = 0; i < typedAns.length; i++) {
+				if (typedAns[i] == '$') {
+					previousLetterIndex = i;
+					break;
+				}
+			}
+			if (previousLetterIndex != null) {
+				typedAns = replaceAt(typedAns, previousLetterIndex, full2Ans[hint-1]);
+			} else {
+				typedAns+=full2Ans[hint-1];
+				digit++;
+			}
+			totaldigit++;
+		} else {
+			if (typedAnsNumbers[hint-1] != hint) {
+				//typed ans & hint ans are NOT same
+				$('#ct'+typedAnsNumbers[hint-1]).css({visibility:'visible'});
+			}
+			typedAns = replaceAt(typedAns, hint-1, full2Ans[hint-1]);
+			typedAnsNumbers[hint-1] = hint;
+		}
+		$("#ans" + hint).html(window["ct" + hint]);
+		// typedAns = replaceAt(typedAns, (hint-1), full2Ans[hint-1]);
+		console.log('typedAns',typedAns)
 		coins--; localStorage.setItem("coins", coins);
 		$("#coins").html(coins);
 
-		if (hint == full2Ans.length - 1) {
+		if (hint == full2Ans.length - 2) {
 			$(".show-hint").css({ visibility: 'hidden' });
 		}
 	}
