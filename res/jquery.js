@@ -516,6 +516,7 @@ $('.show-hint').click(function () {
 				typedAns+=full2Ans[hint-1];
 				digit++;
 			}
+			typedAnsNumbers.push(hint);
 			totaldigit++;
 		} else {
 			if (typedAnsNumbers[hint-1] != hint) {
