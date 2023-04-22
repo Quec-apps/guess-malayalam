@@ -304,7 +304,7 @@ break {
 	background-color: rgba(0, 0, 0, .4);
 }
 
-.game-over {
+.game-over, .request-bg {
 	width: 60vw;
 	max-width: 500px;
 	padding: 20px;
@@ -313,6 +313,9 @@ break {
 	border-radius: 3vw;
 	animation: out-coins 400ms ease 1;
 	transition: all 400ms ease;
+} .request-bg {
+	background: #fff;
+
 }
 
 .g-o-ti {
@@ -389,7 +392,7 @@ break {
 	margin-top: 15px;
 }
 
-.finish-con {
+.finish-con, .winner-con, .request-con {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -400,13 +403,17 @@ break {
 	display: none;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, .4);
+	background-color: rgba(0, 0, 0, 0.54);
 }
+/* .winner-con {
+	display: flex;
+} */
 
 .tool-bg {
 	width: 100%;
 	margin: 2vh 0vh;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 	transform: scale(1.2);

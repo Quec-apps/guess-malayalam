@@ -108,7 +108,7 @@
 		.ct {
 			width: 95vw;
 			max-width: 500PX;
-			height: 120px;
+			height: 90px;
 			border-radius: 10px;
 			transition: all .3s;
 			display: flex;
@@ -181,9 +181,11 @@
 			transition: all .6s ease;
 			opacity: 0;
 			margin-left: 4vw;
-		} .coins:active {
+		}
+
+		.coins:active {
 			transition: none;
-			opacity: .5!important;
+			opacity: .5 !important;
 		}
 
 		.add-img {
@@ -238,9 +240,27 @@
 			animation: toast 600ms ease 1;
 		}
 
+		.toast {
+			width: 90vw;
+			position: fixed;
+			top: 80vh;
+			left: 5vw;
+			padding: 1vh 0;
+			background-color: black;
+			border-radius: 10px;
+			color: white;
+			text-align: center;
+			font-size: large;
+			font-weight: 100;
+			transition: all 400ms ease;
+			display: none;
+			z-index: 999;
+			animation: toast 400ms ease 1;
+		}
+
 		@keyframes toast {
 			0% {
-				transform: scale(1.1);
+				transform: scale(1.2);
 				opacity: 0;
 			}
 
@@ -248,15 +268,6 @@
 				transform: scale(1);
 				opacity: 1;
 			}
-		}
-
-		.ad-class {
-			width: 100%;
-			height: 50px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			transition: all .6s ease;
 		}
 	</style>
 </head>
@@ -277,35 +288,105 @@
 	</div>
 
 	<div class="ct-bg">
-		<div class="ct ct1">
-			<img src="res/movie2.png" class="ct-main-img">
-			<div class="ct-txt">MOVIE</div>
-			<div class="score"><span id="levels">0</span></div>
-			<div class="newAdded"><span id="newLevel"></span> new levels added</div>
+		<div class="ct-hold">
+			<div class="ct ct1">
+				<img src="res/movie2.png" class="ct-main-img">
+				<div class="ct-txt">MOVIE</div>
+				<div class="score"><span id="levels">0</span></div>
+				<div class="newAdded"><span id="newLevel"></span> new levels added</div>
+			</div>
+			<div class="online-bg" id="movieOnline">
+				<div class="online-txt">PLAY ONLINE</div>
+				<div class="rating-img-bg">
+					<img src="res/rating.svg" class="rating-img">
+					<div class="rating-txt" id="movie-rate"></div>
+				</div>
+			</div>
 		</div>
 
-         <img src="res/ad/anime640x100.png" class="ad-bg">
-		<div class="ct ct2">
-			<style>
-				.new-badge {
-					position: absolute;
-					top: 14px;
-					left: 78%;
-					width: 29%;
-					height: 30px;
-					transform: rotate(45deg);
-					background-color: aqua;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					color: #3c0202;
-				}
-			</style>
-			<div class="new-badge">NEW</div>
-			<img src="res/actor2.png" class="ct-main-img">
-			<div class="ct-txt">ACTOR/ACTRESS</div>
-			<div class="score"><span id="actor-level">0</span></div>
+		<style>
+			.ct-hold {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+
+			.online-bg {
+				width: 90vw;
+				margin-top: 2px;
+				/* height: 20px; */
+				background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				border-radius: 10px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				color: white;
+				transition: all .4s ease;
+			}
+
+			.online-bg:active {
+				opacity: .4;
+			}
+
+			.rating-img-bg {
+				width: 70px;
+				height: 40px;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.rating-img {
+				width: 50px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.rating-txt {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		</style>
+
+
+		<img src="res/ad/anime640x100.png" class="ad-bg">
+
+		<div class="ct-hold">
+			<div class="ct ct2">
+				<style>
+					.new-badge {
+						position: absolute;
+						top: 14px;
+						left: 78%;
+						width: 29%;
+						height: 30px;
+						transform: rotate(45deg);
+						background-color: aqua;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: #3c0202;
+					}
+				</style>
+				<div class="new-badge">NEW</div>
+				<img src="res/actor2.png" class="ct-main-img">
+				<div class="ct-txt">ACTOR/ACTRESS</div>
+				<div class="score"><span id="actor-level">0</span></div>
+			</div>
+			<!-- <div class="online-bg">
+				<div class="online-txt">PLAY ONLINE</div>
+				<div class="rating-img-bg">
+					<img src="res/rating.svg" class="rating-img">
+					<div class="rating-txt">1</div>
+				</div>
+			</div> -->
 		</div>
+
 
 		<div class="ct ct3">
 			<div class="new-badge">NEW</div>
@@ -318,7 +399,6 @@
 			.ad-bg {
 				width: 98vw;
 				max-width: 500px;
-				height: 70px;
 				border-radius: 10px;
 				overflow: hidden;
 				transition: all 350ms ease;
@@ -346,12 +426,68 @@
 				transition: none;
 				opacity: .5;
 			}
+
+			.ad-full {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, .5);
+				display: none;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.ad-full-bg {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				background: radial-gradient(#f7d15e, #f7ad5e);
+				border-radius: 10px;
+			}
+
+			.ad-full-img {
+				width: 90%;
+				max-width: 640px;
+			}
+
+			.ad-btn {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.ad-full-install {
+				background-color: #f2f3fc;
+				padding: 10px 20px;
+				border-radius: 10px;
+				margin: 20px 0;
+			}
+
+			.ad-full-install:active {
+				opacity: .4;
+			}
 		</style>
-		
 		<div class="rate-bg">Rate us on Google play store</div>
 
 	</div><!--ct-bg closed-->
+	
+
+	<div class="ad-full">
+		<div class="ad-full-bg">
+			<img src="res/ad/animesqr.png" class="ad-full-img">
+			<div class="ad-btn">
+				<div class="ad-full-install">INSTALL</div>
+				<div class="ad-full-install">CLOSE</div>
+			</div>
+		</div>
+
+	</div>
+
 	<audio id="button2" src="res/button2.mp3"></audio>
+	<div class="toast"></div>
 	<script src="movie/movie.js"></script>
 	<script src="actor/res/actor.js"></script>
 	<script src="song/res/song.js"></script>
@@ -362,6 +498,13 @@
 		setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 300);
 		setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 400);
 		setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 500);
+
+		function Toast(toastStr) {
+			clearInterval(toastTimer);
+			$(".toast").html(toastStr);
+			$(".toast").fadeIn(0);
+			toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
+		}
 
 		if (localStorage.actorLevel == null) {
 			actorLevel = 1;
@@ -379,6 +522,12 @@
 		console.log(songLevel)
 		$("#song-level").html(songLevel);
 
+		if (localStorage.mal_movie_xp == null) {
+			localStorage.mal_movie_xp = 0;
+		}
+		mal_movie_xp = localStorage.mal_movie_xp;
+		$('#movie-rate').text(Math.trunc(mal_movie_xp / 15));
+
 		// adVar = Math.floor(Math.random() * 4 + 1);
 		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
 
@@ -391,7 +540,7 @@
 
 		function FullHide() {
 			setTimeout(function () { $('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
-			setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
+			setTimeout(function () { $('.ct1, .online-con, .online-bg').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
 			setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
 			setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
 			setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 400);
@@ -494,6 +643,14 @@
 			setTimeout(() => {
 				parent.location = 'https://play.google.com/store/apps/details?id=com.quec.guess.anime';
 			}, 200);
+		});
+
+		$('#movieOnline').click(function () {
+			localStorage.onlineMode = 'movie';
+			FullHide();
+			setTimeout(() => {
+				parent.location = 'online-mode.html';
+			}, 700);
 		});
 
 		if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {

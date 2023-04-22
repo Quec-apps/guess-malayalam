@@ -121,28 +121,19 @@ $(document).ready(function () {
 
 
 	$('.skip').click(function () {
-		setTimeout(() => {
-			$('.hint-bg-bg').fadeOut();
-			$(".hint-bg").css({ transform: 'translateY(20%)', opacity: '0' });
-		}, 100);
-		setTimeout(() => { $(".hint-bg").css({ transform: 'translateY(0)', opacity: '1' }); }, 450);
 		if (coins < 10) {
 			document.getElementById("button3").play();
 			$('.out-coins-con').css({ display: 'flex' });
-			setTimeout(function () { $('.hint-bg-bg').fadeOut(); }, 100);
-			setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
 		} else {
 			typedAns = '';
 			typedAnsNumbers = [];
 			hint = 0; localStorage.setItem("actorHint", hint);
 			document.getElementById("win").play();
-			coins--; coins--; coins--; coins--; coins--;
-			coins--; coins--; coins--; coins--; coins--;
+			coins-=10;
 			localStorage.setItem("coins", coins);
 			$("#coins").html(coins);
 			$('.finish-con').css({ display: 'flex' });
 			$('.score2').fadeOut(0);
-			$('.hint-bg-bg').fadeOut();
 			Levelfunct();
 		}
 	});
@@ -192,17 +183,7 @@ $(document).ready(function () {
 		$('.no-more-vid-con').fadeOut();
 	});
 
-	$('.hint').click(function () {
-		$(".hint-bg-bg").css({ display: 'block' });
-	});
-
-	$('.hint-bg-close, .hint-bg-top').click(function () {
-		$(".hint-bg-bg").fadeOut();
-		$('.hint-bg').css({ transform: 'translateY(20%)', opacity: '0' });
-		setTimeout(() => { $('.hint-bg').css({ transform: 'translateY(0%)', opacity: '1' }); }, 400);
-	});
-
-	$('.btn1, .btn3, .home, .retry, .back-img, .hint, .cancel, .clear-all').click(function () {
+	$('.btn1, .btn3, .home, .retry, .back-img, .cancel, .clear-all').click(function () {
 		document.getElementById("button2").play();
 	});
 
@@ -224,12 +205,6 @@ function AppenAll() {
 	for (let aa = 1; aa <= full2Ans.length; aa++) {
 		$('.main-answer-bg').append(`
 	<div class="answer-ct ans-ct answer-ct${aa}" id="ans-ct${aa}"><div class="ans" id="ans${aa}"></div></div>
-	`);
-	}
-
-	for (let ab = 1; ab <= full2Ans.length; ab++) {
-		$('.hint-append').append(`
-	<div class="answer-ct answer-ct${ab}"><div class="ans2" id="hintct${ab}"></div></div>
 	`);
 	}
 
@@ -493,8 +468,6 @@ $('.show-hint').click(function () {
 	if (coins < 1) {
 		document.getElementById("button3").play();
 		$('.out-coins-con').css({ display: 'flex' });
-		setTimeout(function () { $('.hint-bg-bg').fadeOut(); }, 100);
-		setTimeout(function () { $('.hint-bg').css({ top: '0' }); }, 400);
 	} else {
 		document.getElementById("hint").play();
 		hint++; localStorage.setItem("actorHint", hint);
