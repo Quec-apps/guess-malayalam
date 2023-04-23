@@ -115,7 +115,7 @@
 			flex-wrap: wrap;
 			justify-content: center;
 			align-content: center;
-			margin-top: 2vh;
+			/* margin-top: 2vh; */
 			transform: scale(1.2);
 			opacity: 0;
 			transition: all 350ms ease;
@@ -123,7 +123,7 @@
 			color: white;
 			background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 			overflow: hidden;
-			box-shadow: 0px 0px 18px rgba(0, 0, 0, .3);
+			/* box-shadow: 0px 0px 18px rgba(0, 0, 0, .3); */
 		}
 
 		.ct:active {
@@ -156,7 +156,7 @@
 		.score {
 			width: 100%;
 			text-align: center;
-			padding-top: 4vw;
+			/* padding-top: 4vw; */
 			font-size: x-large;
 			position: relative;
 		}
@@ -288,8 +288,8 @@
 	</div>
 
 	<div class="ct-bg">
-		<div class="ct-hold">
-			<div class="ct ct1">
+		<div class="ct-hold ct-hold1">
+			<div class="ct ct1" style="width:65%">
 				<img src="res/movie2.png" class="ct-main-img">
 				<div class="ct-txt">MOVIE</div>
 				<div class="score"><span id="levels">0</span></div>
@@ -306,18 +306,26 @@
 
 		<style>
 			.ct-hold {
+				width: 90vw;
+				max-width: 500PX;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-around;
+				align-items: center;
+				background-color: #fff;
+				box-shadow: 1px 1px 9px #0000008f;
+				padding: 10px 5px;
+				border-radius: 10px;
+				transition: all 350ms ease;
 			}
 
 			.online-bg {
-				width: 90vw;
-				margin-top: 2px;
-				/* height: 20px; */
+				width: 30%;
+				height: 90px;
 				background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 				border-radius: 10px;
 				display: flex;
+				flex-wrap: wrap;
 				justify-content: space-around;
 				align-items: center;
 				color: white;
@@ -326,6 +334,12 @@
 
 			.online-bg:active {
 				opacity: .4;
+			}
+
+			.online-txt {
+				font-size: small;
+				width: 100%;
+				text-align: center;
 			}
 
 			.rating-img-bg {
@@ -338,7 +352,7 @@
 			}
 
 			.rating-img {
-				width: 50px;
+				width: 65px;
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -356,7 +370,7 @@
 
 		<img src="res/ad/anime640x100.png" class="ad-bg">
 
-		<div class="ct-hold">
+		<div class="ct-hold ct-hold2">
 			<div class="ct ct2">
 				<style>
 					.new-badge {
@@ -387,12 +401,13 @@
 			</div> -->
 		</div>
 
-
-		<div class="ct ct3">
-			<div class="new-badge">NEW</div>
-			<img src="res/song.png" class="ct-main-img">
-			<div class="ct-txt">Songs</div>
-			<div class="score"><span id="song-level">0</span></div>
+		<div class="ct-hold ct-hold3">
+			<div class="ct ct3">
+				<div class="new-badge">NEW</div>
+				<img src="res/song.png" class="ct-main-img">
+				<div class="ct-txt">Songs</div>
+				<div class="score"><span id="song-level">0</span></div>
+			</div>
 		</div>
 
 		<style>
@@ -473,7 +488,7 @@
 		<div class="rate-bg">Rate us on Google play store</div>
 
 	</div><!--ct-bg closed-->
-	
+
 
 	<div class="ad-full">
 		<div class="ad-full-bg">
@@ -540,11 +555,11 @@
 
 		function FullHide() {
 			setTimeout(function () { $('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
-			setTimeout(function () { $('.ct1, .online-con, .online-bg').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
-			setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
-			setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
-			setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 400);
-			setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 500);
+			setTimeout(function () { $('.ct1, .online-con, .online-bg, .ct-hold1').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
+			setTimeout(function () { $('.ct2, .ct-hold2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
+			setTimeout(function () { $('.ct3, .ct-hold3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
+			setTimeout(function () { $('.ct4, .ct-hold4').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 400);
+			setTimeout(function () { $('.ct5, .ct-hold5').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 500);
 		}
 
 		localStorage.removeItem("ad");
@@ -592,7 +607,9 @@
 
 		$('.ct1').click(function () {
 			if (levels <= levelTotal) {
-				parent.location = 'movie/movie.html';
+				setTimeout(function () {
+					parent.location = 'movie/movie.html';
+				}, 700);
 			} else {
 				setTimeout(function () {
 					parent.location = 'wait_update.html';

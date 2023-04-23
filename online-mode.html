@@ -129,7 +129,7 @@
         }
 
         .game-over {
-            width: 60vw;
+            width: 80vw;
             max-width: 500px;
             padding: 20px;
             background: rgb(111, 134, 245);
@@ -157,6 +157,10 @@
             justify-content: space-between;
             color: white;
         }
+        .online-txt {
+            font-size: larger;
+            font-weight: 100;
+        }
 
         .close-img {
             background-color: white;
@@ -172,12 +176,12 @@
         .rew {
             background-color: white;
             border-radius: 10px;
-            padding: 10px 15px;
+            padding: 15px 0px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: small;
-            margin: 10px;
+            font-size: large;
+            margin: 15px;
         }
 
         .rew:active {
@@ -185,34 +189,34 @@
         }
 
         .toast {
-			width: 90vw;
-			position: fixed;
-			top: 80vh;
-			left: 5vw;
-			padding: 1vh 0;
-			background-color: black;
-			border-radius: 10px;
-			color: white;
-			text-align: center;
-			font-size: large;
-			font-weight: 100;
-			transition: all 400ms ease;
-			display: none;
-			z-index: 999;
-			animation: toast 400ms ease 1;
-		}
+            width: 90vw;
+            position: fixed;
+            top: 80vh;
+            left: 5vw;
+            padding: 1vh 0;
+            background-color: black;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-size: large;
+            font-weight: 100;
+            transition: all 400ms ease;
+            display: none;
+            z-index: 999;
+            animation: toast 400ms ease 1;
+        }
 
-		@keyframes toast {
-			0% {
-				transform: scale(1.2);
-				opacity: 0;
-			}
+        @keyframes toast {
+            0% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
 
-			100% {
-				transform: scale(1);
-				opacity: 1;
-			}
-		}
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 
     <div class="online-con">
@@ -249,10 +253,10 @@
         }, 4000);
 
         function Toast(toastStr) {
-			$(".toast").html(toastStr);
-			$(".toast").fadeIn(0);
-			toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
-		}
+            $(".toast").html(toastStr);
+            $(".toast").fadeIn(0);
+            toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
+        }
 
         min = 3; //seconds
         max = 10; //seconds
