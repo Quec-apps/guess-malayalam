@@ -8,6 +8,10 @@
 
 <body>
 	<style>
+		.levels {
+			visibility: hidden;
+		}
+		
 		.img-error {
 			width: 100%;
 			height: 100%;
@@ -64,6 +68,10 @@
 			color: #062737;
 			padding-bottom: 4vh;
 		}
+
+		.game-over {
+			width: 70vw;
+		}
 	</style>
 	<div class="full-error">
 		<div class="full-error-txt">Network disconnected!</div>
@@ -108,18 +116,27 @@
 		.win-score,
 		.win-time {
 			padding: 5px 0;
+			font-size: x-large;
 		}
 
 		.win-txt2 {
 			border-top: solid 1px #062737;
 			border-bottom: solid 1px #062737;
 			padding: 5px 0;
+			font-size: larger;
+			color: white;
+			font-weight: 100;
 		}
 
 		.win-coin-bg {
 			display: flex;
 			justify-content: center;
-			margin-top: 10px;
+			align-items: center;
+			margin: 10px 0;
+		}
+
+		.win-coins {
+			font-size: large;
 		}
 
 		.rating-bg {
@@ -192,7 +209,7 @@
 		}
 
 		.increased-bar {
-			width: 30%;
+			width: 0%;
 			height: 100%;
 			background-color: goldenrod;
 		}
@@ -562,7 +579,7 @@
 			currentGameTime--;
 			$(".timer").text(ReturnTime(currentGameTime));
 			if (currentGameTime == 20) {
-				$(".timer").css({ backgroundColor: 'red' });
+				$(".timer").css({ backgroundColor: '#c60000' });
 			}
 			if (currentGameTime == 0) {
 				//time over
@@ -1074,36 +1091,36 @@
 				// you win
 				youWon = true;
 				$(".win-txt").text('You Win');
-				$('#you-score').css({ color: 'green' });
-				$('#opp-score').css({ color: 'red' });
+				$('#you-score').css({ color: '#00ff00' });
+				$('#opp-score').css({ color: '#c60000' });
 			} else if (score == opponentScore) {
 				//Tie
-				$('.win-score').css({ color: 'yellow' });
+				$('.win-score').css({ color: '#ffff03' });
 				if (youTimeTook < oppTimeTook) {
 					//win
 					youWon = true;
 					$(".win-txt").text('You Win');
-					$('#you-time').css({ color: 'green' });
-					$('#opp-time').css({ color: 'red' });
+					$('#you-time').css({ color: '#00ff00' });
+					$('#opp-time').css({ color: '#c60000' });
 				} else if (youTimeTook == oppTimeTook) {
 					//tie
 					$(".win-txt").text("It's Tie");
-					$('.win-time').css({ color: 'yellow' });
+					$('.win-time').css({ color: '#ffff03' });
 					coins += reward;
 					localStorage.coins = coins;
 					$("#coins").text(coins);
 				} else {
 					//lose
 					$(".win-txt").text('You Lose');
-					$('#you-time').css({ color: 'red' });
-					$('#opp-time').css({ color: 'green' });
+					$('#you-time').css({ color: '#c60000' });
+					$('#opp-time').css({ color: '#00ff00' });
 				}
 
 			} else {
 				//You Lose
 				$(".win-txt").text('You Lose');
-				$('#you-score').css({ color: 'red' });
-				$('#opp-score').css({ color: 'green' });
+				$('#you-score').css({ color: '#c60000' });
+				$('#opp-score').css({ color: '#00ff00' });
 			}
 
 			if (youWon) {
@@ -1112,31 +1129,34 @@
 				coins += (reward * 2);
 				localStorage.coins = coins;
 				$("#coins").text(coins);
-				$(".win-coins").css({ color: 'green' });
+				$(".win-coins").css({ color: '#00ff00' });
 				$(".win-coins").text('+' + (reward * 2));
 			} else {
 				//player lose
-				$(".win-coins").css({ color: 'red' });
+				$(".win-coins").css({ color: '#c60000' });
 				$(".win-coins").text('-' + reward);
 				(score /= 2).toFixed(0);
 				console.log(score);
 			}
 			diff = (Math.trunc(mal_movie_xp % _len));
 			fillPercent = (diff * 100) / _len;
-			$(".fill-bar").css({ width: fillPercent + '%' });
-
 
 			oldLevel = Math.trunc(mal_movie_xp / _len);
 			mal_movie_xp += parseInt(score);
 			localStorage.mal_movie_xp = mal_movie_xp;
 			newLevel = Math.trunc(mal_movie_xp / _len);
 			$(".rating-txt").text(newLevel);
-			if (oldLevel == newLevel) {
-				$(".increased-bar").css({ width: (score * 100) / diff + "%" });
-			} else {
-				$(".increased-bar").css({ width: "100%" });
-				$(".level-up").fadeIn();
-			}
+			setTimeout(() => {
+				console.log('bar done')
+				$(".fill-bar").css({ width: fillPercent + '%' });
+				if (oldLevel == newLevel) {
+					$(".increased-bar").css({ width: (score * 100) / diff + "%" });
+				} else {
+					$(".increased-bar").css({ width: "100%" });
+					$(".level-up").fadeIn();
+				}
+			}, 2000);
+
 
 			max = 15;
 			min = 4;
