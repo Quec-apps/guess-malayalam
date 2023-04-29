@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="res/jquery.min.js"></script>
-    <script>isLoaded = false;</script>
     <style>
         @font-face {
             font-family: Rubik;
@@ -53,16 +52,19 @@
             transform: scale(1.2);
             opacity: 0;
             transition: all 350ms ease;
-        } .back-img:active {
-            transform: scale(.9)!important;
+        }
+
+        .back-img:active {
+            transform: scale(.9) !important;
         }
 
         .coins {
-            width: 24vw;
+            width: fit-content;
+            min-width: 90px;
             padding: .5vh 2vw;
             background-color: white;
             box-shadow: 0px 0px 4px #0000004d;
-            border-radius: 3vw;
+            border-radius: 10px;
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
@@ -73,13 +75,14 @@
         }
 
         .coins-img {
-            width: 7.5vw;
-            height: 7.5vw;
+            width: 30px;
+            height: 30px;
         }
 
         #coins {
             width: 15vw;
-            font-size: 6vw;
+            font-size: medium;
+            font-weight: 100;
             transform: translateX(1.8vw);
         }
 
@@ -88,11 +91,12 @@
             height: 90vh;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             align-content: baseline;
             transform: scale(1.2);
             opacity: 0;
             transition: all 350ms ease;
+            overflow-y: scroll;
         }
 
         .active:active {
@@ -113,8 +117,9 @@
     <style>
         .ct {
             width: 90vw;
-            height: 15vw;
-            margin-top: 5vh;
+            max-width: 600px;
+            margin-top: 15px;
+            padding: 10px 0;
             background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
             border-radius: 10px;
             display: flex;
@@ -123,22 +128,23 @@
         }
 
         .ct-sub-bg {
-            width: 32vw;
+            width: 40vw;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            font-size: xx-large;
+            font-size: x-large;
             color: white;
+
         }
 
         .hint-img {
-            width: 10vw;
-            height: 10vw;
+            width: 35px;
+            height: 35px;
         }
 
         .buy {
-            width: 20vw;
-            height: 11vw;
+            width: 90px;
+            padding: 12px 0;
             transform: translateX(-4.7vw);
             background-color: white;
             display: flex;
@@ -154,9 +160,10 @@
         }
 
         .video-img {
-            width: 6vw;
-            height: 6vw;
+            width: 30px;
+            height: 30px;
         }
+
         .ad-class {
             width: 100%;
             display: flex;
@@ -197,10 +204,75 @@
             </div>
         </div>
 
-        <div class="ad-class">
-            <script async="async" data-cfasync="false" src="//pl18786959.highrevenuegate.com/d0f87bd8fac9518b504655df9d9bb647/invoke.js"></script>
-            <div id="container-d0f87bd8fac9518b504655df9d9bb647"></div>
+        <style>
+            .divider-bg {
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 30px;
+            }
+
+            .divider-bar {
+                width: 20%;
+                height: 1px;
+                background-color: #24282c;
+            }
+
+            .divider-ct {
+                margin: 0 10px;
+            }
+
+            .app-img {
+                width: 50px;
+                margin-left: 10px;
+            }
+
+            .app-name {
+                width: 40%;
+                font-size: medium;
+                text-align: center;
+                color: white;
+            }
+
+            .empty {
+                width: 100vw;
+                height: 40px;
+            }
+        </style>
+        <div class="divider-bg">
+            <div class="divider-bar"></div>
+            <div class="divider-ct">More apps</div>
+            <div class="divider-bar"></div>
         </div>
+        <div class="ct ct4">
+            <img src="res/app/anime.png" class="app-img">
+            <div class="app-name">Guess Anime</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.anime`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct ct4">
+            <img src="res/app/bollywood.png" class="app-img">
+            <div class="app-name">Guess Bollywood Movie</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.bollywood`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct ct4">
+            <img src="res/app/tamil.png" class="app-img">
+            <div class="app-name">Guess Tamil Movie</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.tamil`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="empty"></div>
 
     </div>
 
@@ -239,7 +311,7 @@
 
         setInterval(() => {
             coins = localStorage.getItem("coins"); $("#coins").html(coins);
-        }, 1500);
+        }, 2500);
     </script>
 </body>
 
