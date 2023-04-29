@@ -127,7 +127,7 @@ $(document).ready(function () {
 		} else {
 			typedAns = '';
 			typedAnsNumbers = [];
-			hint = 0; localStorage.setItem("actorHint", hint);
+			hint = 0; localStorage.setItem("malMovieHint", hint);
 			document.getElementById("win").play();
 			coins-=10;
 			localStorage.setItem("coins", coins);
@@ -263,10 +263,10 @@ function AppenAll() {
 		}
 	}
 
-	if (localStorage.getItem("actorHint") == null) {
-		hint = 0; localStorage.setItem("actorHint", hint);
+	if (localStorage.getItem("malMovieHint") == null) {
+		hint = 0; localStorage.setItem("malMovieHint", hint);
 	} else {
-		hint = parseInt(localStorage.getItem("actorHint"));
+		hint = parseInt(localStorage.getItem("malMovieHint"));
 	}
 
 	
@@ -443,8 +443,9 @@ function finalCheck() {
 	setTimeout(() => {
 		if (totaldigit == full2Ans.length + 1) {
 			if (typedAns == full2Ans) {
-				hint = 0; localStorage.setItem("actorHint", hint);
+				hint = 0; localStorage.setItem("malMovieHint", hint);
 				Levelfunct();
+				$('.score2').css({ visibility:'visible' });
 				$('.finish-con').css({ display: 'flex' });
 				document.getElementById("finish").play();
 				coins++;
@@ -470,7 +471,7 @@ $('.show-hint').click(function () {
 		$('.out-coins-con').css({ display: 'flex' });
 	} else {
 		document.getElementById("hint").play();
-		hint++; localStorage.setItem("actorHint", hint);
+		hint++; localStorage.setItem("malMovieHint", hint);
 		$("#ans-ct" + hint).css({backgroundColor:'green', color:'white'});
 		$("#ct"+hint).css({visibility:'hidden'});
 		//check if showing hint is empty
