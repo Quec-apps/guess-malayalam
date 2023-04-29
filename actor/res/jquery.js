@@ -90,6 +90,7 @@ $(document).ready(function () {
 			$('.levels, .coins').css({ transform: 'scale(1.2)', opacity: '0' });
 		}, 100);
 		setTimeout(() => {
+			$('.score2').css({visibility:'hidden'});
 			$(".finish-con").fadeOut();
 			$(".game-over").css({ transform: 'scale(1)', opacity: '1' });
 			$('.levels, .coins').css({ transform: 'scale(1)', opacity: '1' });
@@ -202,10 +203,15 @@ $(document).ready(function () {
 		console.log("Correct");
 		$(this).css({ background: 'green' });
 		document.getElementById("finish").play();
+		giveReward = Math.floor((Math.random() * 3) + 1);
 		setTimeout(() => {
+			if (giveReward == 1) {
+				//give one coin
+				$('.score2').css({visibility:'visible'});
+				coins++; localStorage.setItem("coins", coins);
+				$("#coins").html(coins);
+			}
 			$('.finish-con').css({ display: 'flex' });
-			coins++; localStorage.setItem("coins", coins);
-			$("#coins").html(coins);
 		}, 400);
 		levels++;
 		localStorage.actorLevel = levels;
