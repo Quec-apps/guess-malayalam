@@ -165,9 +165,9 @@ break {
 	z-index: 0;
 }
 .sound-img {
-	width: 60px;
-	height: 60px;
-	padding: 30px;
+	width: 40px;
+	height: 40px;
+	padding: 15px;
 	background: rgb(247,247,247);
 	background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(227,227,227,1) 100%);
 	border-radius: 15px;
@@ -351,6 +351,7 @@ break {
 .score2 {
 	margin: 0;
 	padding: 0;
+	visibility: hidden;
 }
 
 .g-o-ct-bg {
@@ -595,35 +596,36 @@ break {
 }
 
 .buy-coins-ct {
-	width: 80vw;
-	height: 15vw;
+	width: 90%;
+	max-width: 600px;
+	margin-top: 10px;
+	padding: 10px 0;
 	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
 	border-radius: 10px;
-	box-shadow: 0px 0px 8px #9e6a6a;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .ct-sub-bg {
-	width: 32vw;
+	width: 40%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	font-size: 6vw;
+	font-size: large;
 	color: white;
 }
 
 .hint-img {
-	width: 10vw;
-	height: 10vw;
+	width: 30px;
+	height: 30px;
 }
 
 .buy {
-	width: 20vw;
-	height: 11vw;
+	width: 90px;
+	padding: 6px 0;
 	transform: translateX(-4.7vw);
-	background-color: #f5ebea;
+	background-color: white;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
