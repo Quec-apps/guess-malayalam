@@ -4,12 +4,9 @@ total = parseInt(songLevelTotal);
 var coins = localStorage.getItem("coins");
 document.getElementById("coins").innerHTML = coins;
 
-var FullImage = 0;
-
 setTimeout(() => { $(".answer-bg, .back-img").css({ transform: 'scale(1)', opacity: '1' }); }, 100);
 setTimeout(() => { $(".letters-bg").css({ transform: 'scale(1)', opacity: '1' }); }, 200);
 setTimeout(() => { $(".tool-bg").css({ transform: 'scale(1)', opacity: '1' }); }, 300);
-
 
 function Outro() {
 	setTimeout(() => {
@@ -21,11 +18,6 @@ function Outro() {
 	setTimeout(() => { $(".letters-bg").css({ transform: 'scale(1.2)', opacity: '0' }); }, 150);
 	setTimeout(() => { $(".tool-bg").css({ transform: 'scale(1.2)', opacity: '0' }); }, 200);
 }
-
-if (FullImage == 0) {
-	$(".main-img-bg2").css({ visibility: 'hidden' });
-}
-
 
 function MainShuffle() {
 	$(function () {
@@ -44,6 +36,28 @@ function LevelNext() {
 }
 document.getElementById("coin-txt").innerHTML = "+1";
 
+function SqAdAppend() {
+	adVar = Math.floor(Math.random() * 5 + 1);
+	setTimeout(() => {
+		$(".completed-img").attr("src", "../res/image/ad/sq" + adVar + ".png");
+	}, 600);
+
+	if (adVar == 1)
+		link = "https://play.google.com/store/apps/details?id=com.quec.guess.bollywood";
+	if (adVar == 2)
+		link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+	if (adVar == 3)
+		link = "https://play.google.com/store/apps/details?id=com.quec.guess.tamil";
+	if (adVar == 4)
+		link = "https://play.google.com/store/apps/details?id=com.quec.anime.guess";
+	if (adVar == 5)
+		link = "https://play.google.com/store/apps/details?id=com.quec.queball";
+}
+$(".box-ad").click(function() {
+	$(this).off();
+	parent.location=link;
+});
+
 $(document).ready(function () {
 	vhHeight = $(window).outerHeight();
 	fullHeight = $(".full").outerHeight();
@@ -53,7 +67,7 @@ $(document).ready(function () {
 	function Append() {
 		$('.play-aud').css({ visibility: 'hidden' });
 		$('.playing-bg').fadeOut();
-		$('.loading-bg').css({display:'flex'});
+		$('.loading-bg').css({ display: 'flex' });
 
 		interact = true;
 		$("#main-levels").text(levels);
@@ -88,13 +102,14 @@ $(document).ready(function () {
 				}, 600);
 			});
 		}
+		SqAdAppend();
 	}
 	Append();
 
 	window.onload = function () {
 		audio = document.getElementById("main-aud");
 	};
-	
+
 	firstRun = true;
 	$(".sound-img").click(function () {
 		var files = this.files;
@@ -102,10 +117,10 @@ $(document).ready(function () {
 		audio.load();
 		audio.play();
 		var context = new AudioContext();
-		
-		
+
+
 		if (firstRun) {
-			firstRun=false;
+			firstRun = false;
 			src = context.createMediaElementSource(audio);
 			analyser = context.createAnalyser();
 			src.connect(analyser);
@@ -117,7 +132,7 @@ $(document).ready(function () {
 		// canvas.height = window.innerHeight;
 		var ctx = canvas.getContext("2d");
 
-		
+
 
 		analyser.fftSize = 256;
 
@@ -187,7 +202,7 @@ $(document).ready(function () {
 			$('.levels, .coins').css({ transform: 'scale(1.2)', opacity: '0' });
 		}, 100);
 		setTimeout(() => {
-			$('.score2').css({visibility:'hidden'});
+			$('.score2').css({ visibility: 'hidden' });
 			$(".finish-con").fadeOut();
 			$(".game-over").css({ transform: 'scale(1)', opacity: '1' });
 			$('.levels, .coins').css({ transform: 'scale(1)', opacity: '1' });
@@ -307,7 +322,7 @@ $(document).ready(function () {
 		setTimeout(() => {
 			if (giveReward == 1) {
 				//give one coin
-				$('.score2').css({visibility:'visible'});
+				$('.score2').css({ visibility: 'visible' });
 				coins++; localStorage.setItem("coins", coins);
 				$("#coins").html(coins);
 			}
@@ -369,6 +384,7 @@ $(".back").click(function () {
 	$('.back').css({ transform: 'perspective(1000px) rotateY(-180deg)' });
 
 });
+
 
 if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
 	localStorage.Inter = 1;
