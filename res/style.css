@@ -136,13 +136,24 @@ break {
 	align-items: center;
 }
 
-.main-img-bg2 {
-	height: 30vh;
+.box-ad {
 	background: white;
 	border-radius: 4vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+}
+.ad-txt {
+	position: absolute;
+    top: 0;
+    left: 0;
+    background: #1b0500;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-weight: 100;
+    font-size: xx-small;
 }
 
 
@@ -179,7 +190,7 @@ break {
 }
 
 .completed-img {
-	width: 30vw;
+	width: 100%;
 	margin: 0 auto;
 	border-radius: 10px;
 	background: white;
