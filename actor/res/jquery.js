@@ -55,6 +55,28 @@ $(document).ready(function () {
 	calcHeight = vhHeight - fullHeight;
 	$(".letters-bg").css({ height: '' + (calcHeight - 10) });
 
+	function SqAdAppend() {
+		adVar = Math.floor(Math.random() * 5 + 1);
+		setTimeout(() => {
+			$(".completed-img").attr("src", "../../res/image/ad/sq" + adVar + ".png");
+		}, 600);
+	
+		if (adVar == 1)
+			link = "https://play.google.com/store/apps/details?id=com.quec.guess.bollywood";
+		if (adVar == 2)
+			link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+		if (adVar == 3)
+			link = "https://play.google.com/store/apps/details?id=com.quec.guess.tamil";
+		if (adVar == 4)
+			link = "https://play.google.com/store/apps/details?id=com.quec.anime.guess";
+		if (adVar == 5)
+			link = "https://play.google.com/store/apps/details?id=com.quec.queball";
+	}
+	$(".box-ad").click(function() {
+		$(this).off();
+		parent.location=link;
+	});
+
 	function Append() {
 		$(".main-img").fadeOut();
 		$(".loading-txt").fadeIn();
@@ -76,6 +98,8 @@ $(document).ready(function () {
 		});
 
 		MainShuffle();
+
+		SqAdAppend();
 	}
 	Append();
 
