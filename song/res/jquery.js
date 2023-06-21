@@ -54,7 +54,6 @@ function SqAdAppend() {
 		link = "https://play.google.com/store/apps/details?id=com.quec.queball";
 }
 $(".box-ad").click(function() {
-	$(this).off();
 	parent.location=link;
 });
 
