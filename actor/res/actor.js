@@ -116,7 +116,7 @@ window["ans"+a] = "manoj k jayan"; //Answer
 window["noans1"+a] = "Jayan";
 window["noans2"+a] = "Bahadur";
 window["noans3"+a] = "Mammukoya";
-window["noans4"+a] = "Mammukoya";
+window["noans4"+a] = "Nedumudi Venu";
 
 a++;
 window["ans"+a] = "Anupama Parameshwaran"; //Answer
@@ -127,7 +127,7 @@ window["noans4"+a] = "Bhavana Menon";
 
 a++;
 window["ans"+a] = "indrajith"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "mukesh";
 window["noans2"+a] = "Prathap Pothen";
 window["noans3"+a] = "Prem Nazir";
 window["noans4"+a] = "Lalu Alex";
@@ -183,7 +183,7 @@ window["noans4"+a] = "fahad fasil";
 
 a++;
 window["ans"+a] = "sreenivasan"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "kailash";
 window["noans2"+a] = "Alencier Ley Lopez";
 window["noans3"+a] = "suraj";
 window["noans4"+a] = "mukesh";
@@ -214,7 +214,7 @@ window["ans"+a] = "aju vargheese"; //Answer
 window["noans1"+a] = "kunchako boban";
 window["noans2"+a] = "murali";
 window["noans3"+a] = "Jayan";
-window["noans4"+a] = "None";
+window["noans4"+a] = "bala";
 
 a++;
 window["ans"+a] = "vineeth sreenivasan"; //Answer
@@ -438,7 +438,7 @@ window["ans"+a] = "Bhavana Menon"; //Answer
 window["noans1"+a] = "Rajisha Vijayan";
 window["noans2"+a] = "Isha Talwar";
 window["noans3"+a] = "Anaswara Rajan";
-window["noans4"+a] = "None";
+window["noans4"+a] = "Pearle Maaney";
 
 a++;
 window["ans"+a] = "Shamna Kasim"; //Answer
@@ -513,7 +513,7 @@ window["noans4"+a] = "unni mukundhan";
 a++;
 window["ans"+a] = "Nikhila Vimal"; //Answer
 window["noans1"+a] = "Meera Nandan";
-window["noans2"+a] = "None";
+window["noans2"+a] = "Aishwarya Lekshmi";
 window["noans3"+a] = "Samyuktha Varma";
 window["noans4"+a] = "Meera Jasmine";
 
@@ -547,7 +547,7 @@ window["noans4"+a] = "Anikha Surendran";
 
 a++;
 window["ans"+a] = "Geetu Mohandas"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "Nyla Usha";
 window["noans2"+a] = "Neeraja Das";
 window["noans3"+a] = "Manju Warrier";
 window["noans4"+a] = "Saniya Iyappan";
@@ -757,7 +757,7 @@ window["noans4"+a] = "Isha Talwar";
 
 a++;
 window["ans"+a] = "Samskruthy Shenoy"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "Namitha Pramod";
 window["noans2"+a] = "Nazriya Nazim";
 window["noans3"+a] = "Priyanka Nair";
 window["noans4"+a] = "Anikha Surendran";
@@ -773,7 +773,7 @@ a++;
 window["ans"+a] = "Asha Sharath"; //Answer
 window["noans1"+a] = "Remya Nambeesan";
 window["noans2"+a] = "Deepti Sati";
-window["noans3"+a] = "None";
+window["noans3"+a] = "Anusree";
 window["noans4"+a] = "Shaalin Zoya";
 
 a++;
@@ -1047,7 +1047,7 @@ window["ans"+a] = "kochu preaman"; //Answer
 window["noans1"+a] = "Cochin Haneefa";
 window["noans2"+a] = "vijay babu";
 window["noans3"+a] = "Captain Raju";
-window["noans4"+a] = "None";
+window["noans4"+a] = "Lalu Alex";
 
 a++;
 window["ans"+a] = "ashokan"; //Answer
@@ -1513,7 +1513,7 @@ window["noans4"+a] = "Janardanan";
 
 a++;
 window["ans"+a] = "Madhupal"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "M.G. Soman";
 window["noans2"+a] = "abi";
 window["noans3"+a] = "Prathapachandran";
 window["noans4"+a] = "Madhu";
@@ -1578,7 +1578,7 @@ a++;
 window["ans"+a] = "Anoop Chandran"; //Answer
 window["noans1"+a] = "Boban Alummoodan";
 window["noans2"+a] = "KTS Padannayil";
-window["noans3"+a] = "None";
+window["noans3"+a] = "Rajan P. Dev";
 window["noans4"+a] = "Rahul Madhav";
 
 a++;
@@ -1815,7 +1815,7 @@ window["noans4"+a] = "Vijilesh Karayad";
 a++;
 window["ans"+a] = "Kamalahasan"; //Answer
 window["noans1"+a] = "Saju Navodaya";
-window["noans2"+a] = "None";
+window["noans2"+a] = "Kollam Ajith";
 window["noans3"+a] = "Sajan Palluruthi";
 window["noans4"+a] = "Boban Alummoodan";
 
@@ -1864,7 +1864,7 @@ window["noans4"+a] = "Shiju";
 a++;
 window["ans"+a] = "Noby Marcose"; //Answer
 window["noans1"+a] = "Vijayan Karanthoor";
-window["noans2"+a] = "None";
+window["noans2"+a] = "VD Rajappan";
 window["noans3"+a] = "Nasser";
 window["noans4"+a] = "P Ramu";
 
@@ -1913,7 +1913,7 @@ window["noans4"+a] = "Nelson";
 a++;
 window["ans"+a] = "Arun"; //Answer
 window["noans1"+a] = "Vinay Forrt";
-window["noans2"+a] = "None";
+window["noans2"+a] = "Niyaz Backer";
 window["noans3"+a] = "James Parackal";
 window["noans4"+a] = "Thampi Antony";
 
@@ -2305,7 +2305,7 @@ window["noans4"+a] = "Vijayakumar";
 a++;
 window["ans"+a] = "Kottayam Ramesh"; //Answer
 window["noans1"+a] = "Baiju VK";
-window["noans2"+a] = "None";
+window["noans2"+a] = "Biju Pappan";
 window["noans3"+a] = "Karamana Janardanan";
 window["noans4"+a] = "Balaji Sharma";
 
@@ -2332,7 +2332,7 @@ window["noans4"+a] = "Sajan Palluruthi";
 
 a++;
 window["ans"+a] = "Babu Swami"; //Answer
-window["noans1"+a] = "None";
+window["noans1"+a] = "Aniyappan";
 window["noans2"+a] = "Aliyar";
 window["noans3"+a] = "Baiju Ezhupunna";
 window["noans4"+a] = "Jayan Cherthala";
@@ -2342,7 +2342,7 @@ window["ans"+a] = "Thampi Antony"; //Answer
 window["noans1"+a] = "Ganapathi";
 window["noans2"+a] = "Abu Salim";
 window["noans3"+a] = "Jose";
-window["noans4"+a] = "None";
+window["noans4"+a] = "Shiju";
 
 a++;
 window["ans"+a] = "Suresh Aristo"; //Answer
