@@ -1,7 +1,7 @@
 levels = localStorage.actorLevel
 total = parseInt(actorLevelTotal);
 
-var coins = localStorage.getItem("coins");
+coins = parseInt(localStorage.getItem("coins"));
 document.getElementById("coins").innerHTML = coins;
 
 var FullImage = 0;
