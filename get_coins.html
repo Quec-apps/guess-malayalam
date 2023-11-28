@@ -123,6 +123,7 @@
             background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
             border-radius: 10px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
         }
@@ -205,6 +206,75 @@
         </div>
 
         <style>
+            .ct-top {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-left: 10px;
+            }
+            .ct-mid {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin: 15px 0;
+            }
+            .ct-btm {
+                margin-left: 10px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .rem-bar-bg {
+                width: 75%;
+                height: 30px;
+                background-color: white;
+                display: flex;
+            }
+            .rem-fill-bar {
+                width: 0%;
+                height: 100%;
+                background-color: #ffb200;
+                display: flex;
+                justify-content: flex-end;
+            }
+            .rem-coins-bg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .rem-img {
+                width: 15px;
+                height: 15px;
+            }
+            .rem-btm-txt {
+                font-size: small;
+            }
+            .rem-fill-coins {
+                color: #ffb200;
+                transform: translate(18px, -25px);
+
+            }
+        </style>
+        <div class="ct ct4" style="color: white;">
+            <div class="ct-top">
+                <img src="res/block.webp" class="hint-img">
+                <div class="remove-txt">Remove Ads for FREE</div>
+            </div>
+            <div class="ct-mid">
+                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">0</div>
+                <div class="rem-bar-bg">
+                    <div class="rem-fill-bar"><div class="rem-coins-bg rem-fill-coins"><img src="res/coins.webp" class="rem-img"><span id="rem-fill-coins">0</span></div></div>
+                </div>
+                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">500</div>
+            </div>
+            <div class="ct-btm">
+                <div class="rem-btm-txt">Buy <span><img src="res/coins.webp" class="rem-img"></span> 500 or more coins to remove Interstitial (Full Screen) Ads</div>
+                <div class="buy rem-ad-btn active" style="color: black; width: 180px;">Remove Ad</div>
+            </div>
+        </div>
+
+        <style>
             .divider-bg {
                 width: 100vw;
                 display: flex;
@@ -250,11 +320,11 @@
             <div class="app-name">Guess English Songs</div>
             <div class="buy active">
                 <div class="buy-ct"
-                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.english`'>
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.english`'>
                     Install</div>
             </div>
         </div>
-        <div class="ct ct4">
+        <div class="ct">
             <img src="res/app/anime.png" class="app-img">
             <div class="app-name">Guess Anime</div>
             <div class="buy active">
@@ -263,7 +333,7 @@
                     Install</div>
             </div>
         </div>
-        <div class="ct ct4">
+        <div class="ct">
             <img src="res/app/bollywood.png" class="app-img">
             <div class="app-name">Guess Bollywood Movie</div>
             <div class="buy active">
@@ -272,7 +342,7 @@
                     Install</div>
             </div>
         </div>
-        <div class="ct ct4">
+        <div class="ct">
             <img src="res/app/tamil.png" class="app-img">
             <div class="app-name">Guess Tamil Movie</div>
             <div class="buy active">
@@ -297,8 +367,32 @@
 
         }
 
-        coins = localStorage.getItem("coins"); $("#coins").html(coins);
+        coins = parseInt(localStorage.coins); $("#coins").html(coins);
+        bought_coins = parseInt(localStorage.mal_bought_coins)
+        isAdRemoved = parseInt(localStorage.mal_isAdRemoved)
+        adRemoveLimit = 500;
 
+        function UpdateBoughtCoin() {
+            $("#rem-fill-coins").text(bought_coins);
+            fill_percent = bought_coins / adRemoveLimit * 100
+            $(".rem-fill-bar").css({width: fill_percent+'%'});
+        }
+
+        if (isAdRemoved == 1) {
+            // Ad is removed
+            $(".ct-mid, .ct-btm").fadeOut(0);
+            $(".remove-txt").text('Full Screen Ad Removed');
+        } else {
+            // Ad is NOT removed
+            UpdateBoughtCoin();
+        }
+
+        $(".rem-ad-btn").click(function() {
+            if (isAdRemoved == 0 && bought_coins >= adRemoveLimit) {
+                localStorage.mal_isAdRemoved = 1;
+                $(".rem-ad-btn").text('Ad Removed');
+            }
+        });
 
         $(".back-img").click(function () {
             Outro();
@@ -319,7 +413,9 @@
         });
 
         setInterval(() => {
-            coins = localStorage.getItem("coins"); $("#coins").html(coins);
+            coins = parseInt(localStorage.coins); $("#coins").html(coins);
+            bought_coins = parseInt(localStorage.mal_bought_coins);
+            UpdateBoughtCoin();
         }, 2500);
     </script>
 </body>

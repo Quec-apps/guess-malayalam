@@ -521,6 +521,11 @@
 			toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
 		}
 
+		if (localStorage.mal_bought_coins == null) {
+			localStorage.mal_bought_coins = 0;
+			localStorage.mal_isAdRemoved = 0;
+		}
+
 		if (localStorage.actorLevel == null) {
 			actorLevel = 1;
 			localStorage.actorLevel = actorLevel;
