@@ -270,7 +270,7 @@
             </div>
             <div class="ct-btm">
                 <div class="rem-btm-txt">Buy <span><img src="res/coins.webp" class="rem-img"></span> 500 or more coins to remove Interstitial (Full Screen) Ads</div>
-                <div class="buy rem-ad-btn active" style="color: black; width: 180px;">Remove Ad</div>
+                <div class="buy rem-ad-btn active" style="color: black; width: 180px; opacity: .3;">Remove Ad</div>
             </div>
         </div>
 
@@ -376,12 +376,19 @@
             $("#rem-fill-coins").text(bought_coins);
             fill_percent = bought_coins / adRemoveLimit * 100
             $(".rem-fill-bar").css({width: fill_percent+'%'});
+            if (bought_coins >= adRemoveLimit) {
+                $(".rem-ad-btn").css({opacity:'1'});
+            }
+        }
+
+        function HideAdsCt() {
+            $(".ct-mid, .ct-btm").fadeOut(0);
+            $(".remove-txt").text('Full Screen Ad Removed');
         }
 
         if (isAdRemoved == 1) {
             // Ad is removed
-            $(".ct-mid, .ct-btm").fadeOut(0);
-            $(".remove-txt").text('Full Screen Ad Removed');
+            HideAdsCt();
         } else {
             // Ad is NOT removed
             UpdateBoughtCoin();
@@ -391,6 +398,7 @@
             if (isAdRemoved == 0 && bought_coins >= adRemoveLimit) {
                 localStorage.mal_isAdRemoved = 1;
                 $(".rem-ad-btn").text('Ad Removed');
+                setTimeout(() => {HideAdsCt();}, 400);
             }
         });
 
