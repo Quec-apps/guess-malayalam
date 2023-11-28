@@ -230,6 +230,7 @@
                 height: 30px;
                 background-color: white;
                 display: flex;
+                border-radius: 10px;
             }
             .rem-fill-bar {
                 width: 0%;
@@ -237,6 +238,8 @@
                 background-color: #ffb200;
                 display: flex;
                 justify-content: flex-end;
+                transition: all ease 3s;
+                border-radius: 10px;
             }
             .rem-coins-bg {
                 display: flex;
@@ -393,7 +396,9 @@
             HideAdsCt();
         } else {
             // Ad is NOT removed
-            UpdateBoughtCoin();
+            setTimeout(() => {
+                UpdateBoughtCoin();
+            }, 100);
         }
 
         $(".rem-ad-btn").click(function() {
