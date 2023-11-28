@@ -10,7 +10,6 @@ setTimeout(() => { $(".answer-bg, .back-img").css({ transform: 'scale(1)', opaci
 setTimeout(() => { $(".letters-bg").css({ transform: 'scale(1)', opacity: '1' }); }, 200);
 setTimeout(() => { $(".tool-bg").css({ transform: 'scale(1)', opacity: '1' }); }, 300);
 
-
 function Outro() {
 	setTimeout(() => {
 		$(".game-over-con").fadeOut();
@@ -25,7 +24,6 @@ function Outro() {
 if (FullImage == 0) {
 	$(".main-img-bg2").css({ visibility: 'hidden' });
 }
-
 
 function MainShuffle() {
 	$(function () {
@@ -178,7 +176,13 @@ $(document).ready(function () {
 	});
 
 	var Inter = localStorage.getItem('Inter');
+	isAdRemoved = parseInt(localStorage.mal_isAdRemoved)
+
 	$('.back-img, .home, .retry, .next').click(function () {
+		if (isAdRemoved == 1) {
+			// Inter is Removed
+			return
+		}
 		if (Inter > 4) {
 			Inter = 0;
 			localStorage.setItem('Inter', 0);
