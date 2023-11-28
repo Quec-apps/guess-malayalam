@@ -193,7 +193,15 @@
 			height: 35px;
 			margin-left: 20px;
 		}
-
+		.no-ads-img {
+			width: 35px;
+			height: 35px;
+			transition: all 350ms ease;
+			opacity: 0;
+		} .no-ads-img:active {
+			transition: none;
+			opacity: .5 !important;
+		}
 		.coins-img {
 			width: 25px;
 			height: 25px;
@@ -279,6 +287,7 @@
 			<div id="coins">0</div>
 			<img src="res/add.webp" class="add-img">
 		</div>
+		<img src="res/block.webp" class="no-ads-img">
 		<div class="coffee-bg">
 			<div class="coffee-txt">Support me!</div>
 			<img src="res/coffee.webp" class="coffee-img">
@@ -507,7 +516,7 @@
 	<script src="actor/res/actor.js"></script>
 	<script src="song/res/song.js"></script>
 	<script>
-		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
+		setTimeout(function () { $('.coffee-img, .coins, .no-ads-img, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
 		setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 200);
 		setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 300);
@@ -559,7 +568,7 @@
 		// 	link = "https://play.google.com/store/apps/details?id=com.quec.name.the.image";
 
 		function FullHide() {
-			setTimeout(function () { $('.coffee-img, .coins, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
+			setTimeout(function () { $('.coffee-img, .coins, .no-ads-img, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
 			setTimeout(function () { $('.ct1, .online-con, .online-bg, .ct-hold1').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
 			setTimeout(function () { $('.ct2, .ct-hold2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
 			setTimeout(function () { $('.ct3, .ct-hold3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
@@ -597,7 +606,7 @@
 			FullHide();
 		});
 
-		$('.coins, .buy-bg').click(function () {
+		$('.coins, .buy-bg, .no-ads-img').click(function () {
 			document.getElementById("button2").play();
 			FullHide();
 			setTimeout(() => { parent.location = "get_coins.html"; }, 700);
